@@ -1,8 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Início";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center mt-5">
+    <h1 class="display-4 mb-4"><i class="fas fa-school"></i> Bem-vindo ao Gradify</h1>
+    <p class="lead mb-5">Escolha uma das opções abaixo para começar:</p>
+
+    <div class="d-flex flex-column align-items-center gap-3">
+        <a href="@Url.Action("Index", "Aluno")" class="btn btn-outline-primary btn-lg w-50">
+            <i class="fas fa-user-graduate"></i> Alunos
+        </a>
+
+        <a href="@Url.Action("Index", "Anotacao")" class="btn btn-outline-secondary btn-lg w-50">
+            <i class="fas fa-sticky-note"></i> Anotações
+        </a>
+
+        <a href="@Url.Action("Index", "Frequencia")" class="btn btn-outline-info btn-lg w-50">
+            <i class="fas fa-calendar-check"></i> Frequências
+        </a>
+
+        <a href="@Url.Action("Index", "Professor")" class="btn btn-outline-success btn-lg w-50">
+            <i class="fas fa-chalkboard-teacher"></i> Professores
+        </a>
+
+        <a href="@Url.Action("Index", "Turma")" class="btn btn-outline-warning btn-lg w-50">
+            <i class="fas fa-users"></i> Turmas
+        </a>
+    </div>
 </div>

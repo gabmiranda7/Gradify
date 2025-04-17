@@ -1,6 +1,6 @@
-﻿using Gradify.Data;       // AppDbContext
-using Gradify.Dto;        // DTOs
-using Gradify.Models;     // Importando a classe Aluno
+﻿using Gradify.Data;
+using Gradify.Dto;
+using Gradify.Models;
 
 namespace Gradify.Services.Aluno
 {
