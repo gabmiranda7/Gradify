@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Gradify.Dto.TurmaLeituraDto>
+
+<h2>Turmas</h2>
+
+<p>
+    <a href="@Url.Action("Criar", "Turma")" class="btn btn-primary">Cadastrar Nova Turma</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Matéria</th>
+            <th>Dia da Aula</th>
+            <th>Professor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var turma in Model)
+        {
+            <tr>
+                <td>@turma.Materia</td>
+                <td>@turma.DiaDaAula</td>
+                <td>@turma.ProfessorNome</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = turma.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = turma.Id }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = turma.Id }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

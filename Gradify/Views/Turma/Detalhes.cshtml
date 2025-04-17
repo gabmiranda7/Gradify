@@ -1,0 +1,22 @@
+﻿@model Gradify.Dto.TurmaLeituraDto
+
+@{
+    ViewData["Title"] = "Detalhes da Turma";
+}
+
+<h1>Detalhes da Turma</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Matéria</dt>
+        <dd class="col-sm-10">@Model.Materia</dd>
+
+        <dt class="col-sm-2">Dia da Aula</dt>
+        <dd class="col-sm-10">@Model.DiaDaAula</dd>
+
+        <dt class="col-sm-2">Professor</dt>
+        <dd class="col-sm-10">@Model.ProfessorNome</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

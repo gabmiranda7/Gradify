@@ -1,0 +1,10 @@
+﻿@model Gradify.Dto.ProfessorLeituraDto
+
+<h2>Excluir Professor</h2>
+
+<p>Tem certeza que deseja excluir o professor @Model.Nome?</p>
+
+<form asp-action="ExcluirConfirmado">
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="@Url.Action("Index", "Professor")" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,9 @@
+﻿@model Gradify.Dto.ProfessorLeituraDto
+
+<h2>Detalhes do Professor</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Nome:</strong> @Model.Nome</p>
+    <a href="@Url.Action("Index", "Professor")">Voltar</a>
+</div>

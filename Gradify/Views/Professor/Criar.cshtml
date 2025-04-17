@@ -1,0 +1,12 @@
+﻿@model Gradify.Dto.ProfessorCriacaoDto
+
+<h2>Criar Novo Professor</h2>
+
+<form asp-action="Criar">
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Criar</button>
+</form>

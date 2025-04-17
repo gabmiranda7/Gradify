@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Gradify.Dto.AnotacaoLeituraDto>
+
+<h2>Anotações</h2>
+
+<p>
+    <a href="@Url.Action("Criar", "Anotacao")" class="btn btn-primary">Criar Nova Anotação</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Matéria</th>
+            <th>Comentário</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var anotacao in Model)
+        {
+            <tr>
+                <td>@anotacao.Materia</td>
+                <td>@anotacao.Comentario</td>
+                <td>
+                    <a href="@Url.Action("Detalhes", "Anotacao", new { id = anotacao.Id })" class="btn btn-info">Detalhes</a> |
+                    <a href="@Url.Action("Editar", "Anotacao", new { id = anotacao.Id })" class="btn btn-warning">Editar</a> |
+                    <a href="javascript:void(0);" onclick="confirmarExclusao(@anotacao.Id)" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
+    </script>
+}
+
+@section Scripts {
+    <script>
+        function confirmarExclusao(id) {
+            Swal.fire({
+                title: 'Você tem certeza?',
+                text: "Esta ação não pode ser desfeita!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '@Url.Action("Excluir", "Anotacao")/' + id;
+                }
+            });
+        }
+    </script>
+}

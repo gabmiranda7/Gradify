@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Gradify.Dto.ProfessorLeituraDto>
+
+<h2>Professores</h2>
+
+<p>
+    <a href="@Url.Action("Criar", "Professor")" class="btn btn-primary">Criar Novo Professor</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var professor in Model)
+        {
+            <tr>
+                <td>@professor.Id</td>
+                <td>@professor.Nome</td>
+                <td>
+                    <a href="@Url.Action("Detalhes", "Professor", new { id = professor.Id })" class="btn btn-info">Detalhes</a> |
+                    <a href="@Url.Action("Editar", "Professor", new { id = professor.Id })" class="btn btn-warning">Editar</a> |
+                    <a href="javascript:void(0);" onclick="confirmarExclusao(@professor.Id)" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
+    </script>
+}
+
+@section Scripts {
+    <script>
+        function confirmarExclusao(id) {
+            Swal.fire({
+                title: 'Você tem certeza?',
+                text: "Esta ação não pode ser desfeita!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redireciona para a ação de exclusão no controller
+                    window.location.href = '@Url.Action("Excluir", "Professor")/' + id;
+                }
+            });
+        }
+    </script>
+}

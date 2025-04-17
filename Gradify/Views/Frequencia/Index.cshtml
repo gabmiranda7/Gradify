@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Gradify.Dto.FrequenciaLeituraDto>
+
+@{
+    ViewData["Title"] = "Frequências";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Criar")" class="btn btn-primary">Registrar Frequência</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.AlunoNome)</th>
+            <th>@Html.DisplayNameFor(model => model.Materia)</th>
+            <th>@Html.DisplayNameFor(model => model.Data)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AlunoNome</td>
+                <td>@item.Materia</td>
+                <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a href="@Url.Action("Detalhes", new { id = item.Id })" class="btn btn-info">Detalhes</a> |
+                    <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-warning">Editar</a> |
+                    <a href="javascript:void(0);" onclick="confirmarExclusao(@item.Id)" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
+    </script>
+}
+
+@section Scripts {
+    <script>
+        function confirmarExclusao(id) {
+            Swal.fire({
+                title: 'Você tem certeza?',
+                text: "Esta ação não pode ser desfeita!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '@Url.Action("Excluir", "Frequencia")/' + id;
+                }
+            });
+        }
+    </script>
+}

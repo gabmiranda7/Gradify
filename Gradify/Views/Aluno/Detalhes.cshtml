@@ -1,0 +1,18 @@
+﻿@model Gradify.Dto.AlunoLeituraDto
+
+@{
+    ViewData["Title"] = "Detalhes do Aluno";
+}
+
+<h1>Detalhes do Aluno</h1>
+
+<div>
+    <label>Nome:</label>
+    <span>@Model.Nome</span>
+</div>
+<div>
+    <label>Matricula:</label>
+    <span>@Model.Matricula</span>
+</div>
+
+<a href="@Url.Action("Index")">Voltar</a>

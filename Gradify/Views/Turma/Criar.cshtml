@@ -1,0 +1,32 @@
+﻿@model Gradify.Dto.TurmaCriacaoDto
+
+<h2>Criar Nova Turma</h2>
+
+<form asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="Materia">Matéria</label>
+        <input type="text" class="form-control" id="Materia" name="Materia" value="@Model.Materia" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DiaDaAula">Dia da Aula</label>
+        <select class="form-control" id="DiaDaAula" name="DiaDaAula" required>
+            @foreach (var dia in ViewBag.DiasDaSemana)
+            {
+                <option value="@dia">@dia</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ProfessorId">Professor</label>
+        <select class="form-control" id="ProfessorId" name="ProfessorId" required>
+            @foreach (var professor in ViewBag.Professores)
+            {
+                <option value="@professor.Id">@professor.Nome</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Criar</button>
+</form>

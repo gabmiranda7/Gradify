@@ -1,0 +1,26 @@
+﻿@model Gradify.Dto.AnotacaoLeituraDto
+
+@{
+    ViewData["Title"] = "Excluir Anotação";
+}
+
+<h1>Confirmar Exclusão</h1>
+
+<h3>Tem certeza que deseja excluir esta anotação?</h3>
+<div>
+    <h4>Anotação</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Comentário</dt>
+        <dd class="col-sm-10">@Model.Comentario</dd>
+
+        <dt class="col-sm-2">Matéria</dt>
+        <dd class="col-sm-10">@Model.Materia</dd>
+    </dl>
+</div>
+
+<form asp-action="ConfirmarExclusao">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

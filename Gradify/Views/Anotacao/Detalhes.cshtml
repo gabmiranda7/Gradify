@@ -1,0 +1,22 @@
+﻿@model Gradify.Dto.AnotacaoLeituraDto
+
+@{
+    ViewData["Title"] = "Detalhes da Anotação";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Anotação</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Comentário</dt>
+        <dd class="col-sm-10">@Model.Comentario</dd>
+
+        <dt class="col-sm-2">Matéria</dt>
+        <dd class="col-sm-10">@Model.Materia</dd> <!-- ← Aqui mostra o nome da matéria -->
+    </dl>
+</div>
+
+<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

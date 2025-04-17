@@ -1,0 +1,22 @@
+﻿@model Gradify.Dto.FrequenciaLeituraDto
+
+@{
+    ViewData["Title"] = "Detalhes da Frequência";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card p-3 shadow-sm rounded-3 bg-light">
+    <h3 class="mb-3">Frequência de <strong>@Model.AlunoNome</strong> na turma de <strong>@Model.Materia</strong></h3>
+
+    <p><strong>Data da Aula:</strong> @Model.Data.ToString("dd/MM/yyyy")</p>
+
+    @if (!string.IsNullOrEmpty(Model.DiaSemana))
+    {
+        <p><strong>Dia da semana da turma:</strong> @Model.DiaSemana</p>
+    }
+</div>
+
+<div class="mt-4">
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Voltar</a>
+</div>
