@@ -115,6 +115,7 @@ namespace Gradify.Controllers
             var sucesso = _frequenciaService.Excluir(id);
             if (!sucesso) return NotFound();
 
+            TempData["Sucesso"] = "Frequência excluída com sucesso!";
             return RedirectToAction("Index");
         }
     }

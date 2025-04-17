@@ -4,32 +4,42 @@
     ViewData["Title"] = "Frequências";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>
+    <i class="fas fa-calendar-check"></i> @ViewData["Title"]
+</h2>
 
 <p>
-    <a href="@Url.Action("Criar")" class="btn btn-primary">Registrar Frequência</a>
+    <a href="@Url.Action("Criar")" class="btn btn-primary mb-3">
+        <i class="fas fa-plus"></i> Registrar Frequência
+    </a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.AlunoNome)</th>
-            <th>@Html.DisplayNameFor(model => model.Materia)</th>
-            <th>@Html.DisplayNameFor(model => model.Data)</th>
+            <th>Aluno</th>
+            <th>Matéria</th>
+            <th>Data</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderBy(f => f.AlunoNome))
         {
             <tr>
                 <td>@item.AlunoNome</td>
                 <td>@item.Materia</td>
                 <td>@item.Data.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a href="@Url.Action("Detalhes", new { id = item.Id })" class="btn btn-info">Detalhes</a> |
-                    <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-warning">Editar</a> |
-                    <a href="javascript:void(0);" onclick="confirmarExclusao(@item.Id)" class="btn btn-danger">Excluir</a>
+                    <a href="@Url.Action("Detalhes", new { id = item.Id })" class="btn btn-info btn-sm">
+                        <i class="fas fa-info-circle"></i> Detalhes
+                    </a>
+                    <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                    <a href="javascript:void(0);" onclick="confirmarExclusao(@item.Id)" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i> Excluir
+                    </a>
                 </td>
             </tr>
         }

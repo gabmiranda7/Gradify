@@ -44,7 +44,9 @@ public class AnotacaoService : IAnotacaoInterface
                       Id = anotacao.Id,
                       Comentario = anotacao.Comentario,
                       Materia = turma.Materia
-                  }).ToList();
+                  })
+            .OrderBy(a => a.Materia)
+            .ToList();
     }
 
     public AnotacaoLeituraDto ObterPorId(int id)

@@ -8,8 +8,8 @@
 
 <form asp-action="Criar">
     <div class="form-group">
-        <label asp-for="Comentario"></label>
-        <input asp-for="Comentario" class="form-control" />
+        <label asp-for="Comentario" class="control-label"></label>
+        <input asp-for="Comentario" class="form-control" placeholder="Digite o comentário" />
         <span asp-validation-for="Comentario" class="text-danger"></span>
     </div>
 
@@ -21,6 +21,10 @@
         <span asp-validation-for="TurmaId" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    <button type="submit" class="btn btn-success">
+        <i class="fas fa-save"></i> Salvar
+    </button>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
 </form>

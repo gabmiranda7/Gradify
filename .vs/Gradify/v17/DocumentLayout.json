@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Projetos\\GitHub\\Gradify\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\anotacao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\anotacao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\frequencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\frequencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +18,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Anotacao\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gradify\\Views\\Anotacao\\Index.cshtml",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Anotacao\\Index.cshtml",
+              "RelativeToolTip": "Gradify\\Views\\Anotacao\\Index.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwE8AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T20:24:26.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Frequencia\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gradify\\Views\\Frequencia\\Index.cshtml",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Frequencia\\Index.cshtml",
+              "RelativeToolTip": "Gradify\\Views\\Frequencia\\Index.cshtml",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAcwFsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T20:24:21.24Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"

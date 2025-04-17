@@ -17,133 +17,117 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gradify
 build_property.RootNamespace = Gradify
-build_property.ProjectDir = C:\Users\gabmi\OneDrive\Área de Trabalho\Agora vai\Gradify\Gradify\
+build_property.ProjectDir = C:\Projetos\GitHub\Gradify\Gradify\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\gabmi\OneDrive\Área de Trabalho\Agora vai\Gradify\Gradify
+build_property.MSBuildProjectDirectory = C:\Projetos\GitHub\Gradify\Gradify
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Aluno/Criar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Aluno/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Aluno/Detalhes.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Aluno/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Aluno/Editar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Aluno/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Aluno/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Aluno/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Anotacao/Criar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Anotacao/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Anotacao/Detalhes.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Anotacao/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Anotacao/Editar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Anotacao/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Anotacao/Excluir.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cRXhjbHVpci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Anotacao/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Anotacao/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Frequencia/Criar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Frequencia/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Frequencia/Detalhes.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Frequencia/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxEZXRhbGhlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Frequencia/Editar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Frequencia/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Frequencia/Excluir.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxFeGNsdWlyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Frequencia/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Frequencia/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Home/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Home/Privacy.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Professor/Criar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Professor/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXENyaWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Professor/Detalhes.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Professor/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXERldGFsaGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Professor/Editar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Professor/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Professor/Excluir.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXEV4Y2x1aXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Professor/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Professor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Turma/Criar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Turma/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Turma/Detalhes.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Turma/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Turma/Editar.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Turma/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Turma/Excluir.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcRXhjbHVpci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Turma/Index.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Turma/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/_ViewImports.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/_ViewStart.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gabmi/OneDrive/Área de Trabalho/Agora vai/Gradify/Gradify/Views/Shared/_Layout.cshtml]
+[C:/Projetos/GitHub/Gradify/Gradify/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ckpfst6bti

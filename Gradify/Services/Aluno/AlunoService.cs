@@ -35,6 +35,7 @@ namespace Gradify.Services.Aluno
         public IEnumerable<AlunoLeituraDto> GetAlunos()
         {
             return _context.Alunos
+                .OrderBy(a => a.Nome)
                 .Select(a => new AlunoLeituraDto
                 {
                     Id = a.Id,

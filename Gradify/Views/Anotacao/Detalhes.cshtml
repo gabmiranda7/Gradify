@@ -4,7 +4,7 @@
     ViewData["Title"] = "Detalhes da Anotação";
 }
 
-<h1>Detalhes</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
     <h4>Anotação</h4>
@@ -18,5 +18,9 @@
     </dl>
 </div>
 
-<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
-<a asp-action="Index" class="btn btn-secondary">Voltar</a>
+<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">
+    <i class="fas fa-edit"></i> Editar
+</a>
+<a asp-action="Index" class="btn btn-secondary">
+    <i class="fas fa-arrow-left"></i> Voltar
+</a>

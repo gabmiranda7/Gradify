@@ -33,6 +33,7 @@ namespace Gradify.Services.Professor
         public IEnumerable<ProfessorLeituraDto> GetProfessores()
         {
             return _context.Professores
+                .OrderBy(p => p.Nome)
                 .Select(p => new ProfessorLeituraDto
                 {
                     Id = p.Id,

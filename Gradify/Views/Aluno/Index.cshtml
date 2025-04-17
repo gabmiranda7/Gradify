@@ -4,35 +4,40 @@
     ViewData["Title"] = "Alunos";
 }
 
-<h1>@ViewData["Title"]</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<h1 class="mb-4 text-primary"><i class="fas fa-users"></i> @ViewData["Title"]</h1>
 
 <p>
-    <a href="@Url.Action("Criar")" class="btn btn-primary">Adicionar Aluno</a>
+    <a href="@Url.Action("Criar")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Adicionar Aluno
+    </a>
 </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.First().Nome)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Matricula)</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var aluno in Model)
-        {
-            <tr>
-                <td>@aluno.Nome</td>
-                <td>@aluno.Matricula</td>
-                <td>
-                    <a href="@Url.Action("Detalhes", new { id = aluno.Id })" class="btn btn-info">Detalhes</a> |
-                    <a href="@Url.Action("Editar", new { id = aluno.Id })" class="btn btn-warning">Editar</a> |
-                    <a href="javascript:void(0);" onclick="confirmarExclusao(@aluno.Id)" class="btn btn-danger">Excluir</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var aluno in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-title">@aluno.Nome</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Matrícula: @aluno.Matricula</h6>
+                    <div class="text-center">
+                        <a href="@Url.Action("Detalhes", new { id = aluno.Id })" class="btn btn-info btn-sm">
+                            <i class="fas fa-eye"></i> Detalhes
+                        </a>
+                        <a href="@Url.Action("Editar", new { id = aluno.Id })" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="javascript:void(0);" onclick="confirmarExclusao(@aluno.Id)" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Excluir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 
 @if (TempData["Sucesso"] != null)
 {

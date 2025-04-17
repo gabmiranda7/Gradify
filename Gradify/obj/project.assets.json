@@ -4718,11 +4718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabmi\\OneDrive\\Área de Trabalho\\Agora vai\\Gradify\\Gradify\\Gradify.csproj",
+      "projectUniqueName": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Gradify.csproj",
       "projectName": "Gradify",
-      "projectPath": "C:\\Users\\gabmi\\OneDrive\\Área de Trabalho\\Agora vai\\Gradify\\Gradify\\Gradify.csproj",
+      "projectPath": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Gradify.csproj",
       "packagesPath": "C:\\Users\\gabmi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gabmi\\OneDrive\\Área de Trabalho\\Agora vai\\Gradify\\Gradify\\obj\\",
+      "outputPath": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -4,16 +4,29 @@
     ViewData["Title"] = "Editar Aluno";
 }
 
-<h1>Editar Aluno</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<form method="post">
-    <div class="form-group">
-        <label for="Nome">Nome</label>
-        <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
-    </div>
-    <div class="form-group">
-        <label for="Matricula">Matrícula</label>
-        <input type="text" class="form-control" id="Matricula" name="Matricula" value="@Model.Matricula" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+<h1 class="mb-4 text-primary"><i class="fas fa-user-edit"></i> @ViewData["Title"]</h1>
+
+<div class="card shadow-lg p-4 mb-4 bg-white rounded" style="max-width: 600px;">
+    <form method="post">
+        <div class="form-group mb-3">
+            <label for="Nome" class="form-label fw-bold"><i class="fas fa-user"></i> Nome</label>
+            <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="Matricula" class="form-label fw-bold"><i class="fas fa-id-card"></i> Matrícula</label>
+            <input type="text" class="form-control" id="Matricula" name="Matricula" value="@Model.Matricula" required />
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Salvar
+            </button>
+            <a href="@Url.Action("Index")" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+        </div>
+    </form>
+</div>

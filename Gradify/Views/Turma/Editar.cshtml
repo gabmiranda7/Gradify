@@ -1,30 +1,36 @@
-﻿@model IEnumerable<Gradify.Dto.TurmaLeituraDto>
+﻿@model Gradify.Dto.TurmaLeituraDto
 
-<h2>Lista de Turmas</h2>
+<h2>Editar Turma</h2>
 
-<a href="@Url.Action("Criar")" class="btn btn-success mb-3">Criar Nova Turma</a>
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Matéria</th>
-            <th>Dia da Aula</th>
-            <th>Professor</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var turma in Model)
-        {
-            <tr>
-                <td>@turma.Materia</td>
-                <td>@turma.DiaDaAula</td>
-                <td>@turma.ProfessorNome</td>
-                <td>
-                    <a href="@Url.Action("Editar", "Turma", new { id = turma.Id })" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="@Url.Action("Excluir", "Turma", new { id = turma.Id })" class="btn btn-danger btn-sm">Excluir</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="form-group">
+        <label for="Materia">Matéria</label>
+        <input type="text" class="form-control" id="Materia" name="Materia" value="@Model.Materia" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DiaDaAula">Dia da Aula</label>
+        <select class="form-control" asp-for="DiaDaAula" required>
+            @foreach (var dia in ViewBag.DiasDaSemana)
+            {
+                <option value="@dia">@dia</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ProfessorId">Professor</label>
+        <select class="form-control" asp-for="ProfessorId" required>
+            @foreach (var professor in ViewBag.Professores)
+            {
+                <option value="@professor.Id">@professor.Nome</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save"></i> Salvar
+    </button>
+</form>

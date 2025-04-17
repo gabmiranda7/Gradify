@@ -98,13 +98,6 @@ namespace Gradify.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, ActionName("Excluir")]
-        public IActionResult ConfirmarExclusao(int id)
-        {
-            _service.Excluir(id);
-            return RedirectToAction(nameof(Index));
-        }
-
         private void CarregarTurmas()
         {
             var turmas = _turmaService.GetTurmas();

@@ -1,22 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\",
+  "WorkspaceRootPath": "C:\\Projetos\\GitHub\\Gradify\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\users\\gabmi\\onedrive\\\u00E1rea de trabalho\\agora vai\\gradify\\gradify\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\anotacao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\anotacao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\users\\gabmi\\onedrive\\\u00E1rea de trabalho\\agora vai\\gradify\\gradify\\models\\frequencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\models\\frequencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\users\\gabmi\\onedrive\\\u00E1rea de trabalho\\agora vai\\gradify\\gradify\\models\\anotacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\models\\anotacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\users\\gabmi\\onedrive\\\u00E1rea de trabalho\\agora vai\\gradify\\gradify\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\frequencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\frequencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Turma.cs",
-              "DocumentMoniker": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Turma.cs",
-              "RelativeDocumentMoniker": "Gradify\\Models\\Turma.cs",
-              "ToolTip": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Turma.cs",
-              "RelativeToolTip": "Gradify\\Models\\Turma.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T01:10:30.511Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Anotacao\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gradify\\Views\\Anotacao\\Index.cshtml",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Anotacao\\Index.cshtml",
+              "RelativeToolTip": "Gradify\\Views\\Anotacao\\Index.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwFIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T20:24:26.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Frequencia.cs",
-              "DocumentMoniker": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Frequencia.cs",
-              "RelativeDocumentMoniker": "Gradify\\Models\\Frequencia.cs",
-              "ToolTip": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Frequencia.cs",
-              "RelativeToolTip": "Gradify\\Models\\Frequencia.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBQAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T01:10:22.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Anotacao.cs",
-              "DocumentMoniker": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Anotacao.cs",
-              "RelativeDocumentMoniker": "Gradify\\Models\\Anotacao.cs",
-              "ToolTip": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Anotacao.cs",
-              "RelativeToolTip": "Gradify\\Models\\Anotacao.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T01:10:17.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Aluno.cs",
-              "DocumentMoniker": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Aluno.cs",
-              "RelativeDocumentMoniker": "Gradify\\Models\\Aluno.cs",
-              "ToolTip": "C:\\Users\\gabmi\\OneDrive\\\u00C1rea de Trabalho\\Agora vai\\Gradify\\Gradify\\Models\\Aluno.cs",
-              "RelativeToolTip": "Gradify\\Models\\Aluno.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T01:10:13.255Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Frequencia\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gradify\\Views\\Frequencia\\Index.cshtml",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Frequencia\\Index.cshtml",
+              "RelativeToolTip": "Gradify\\Views\\Frequencia\\Index.cshtml",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAcwFsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T20:24:21.24Z",
               "EditorCaption": ""
             },
             {
