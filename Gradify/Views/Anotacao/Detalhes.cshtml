@@ -4,23 +4,31 @@
     ViewData["Title"] = "Detalhes da Anotação";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="mb-4 text-center">
+    <i class="fas fa-clipboard"></i> @ViewData["Title"]
+</h1>
 
-<div>
-    <h4>Anotação</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Comentário</dt>
-        <dd class="col-sm-10">@Model.Comentario</dd>
+<div class="card shadow rounded-4 mb-4">
+    <div class="card-body">
+        <h5 class="card-title">
+            <i class="fas fa-comment-alt"></i> Comentário
+        </h5>
+        <p class="card-text fs-5">@Model.Comentario</p>
 
-        <dt class="col-sm-2">Matéria</dt>
-        <dd class="col-sm-10">@Model.Materia</dd> <!-- ← Aqui mostra o nome da matéria -->
-    </dl>
+        <hr />
+
+        <h5 class="card-title mt-4">
+            <i class="fas fa-book-open"></i> Matéria
+        </h5>
+        <p class="card-text fs-5">@Model.Materia</p>
+    </div>
 </div>
 
-<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">
-    <i class="fas fa-edit"></i> Editar
-</a>
-<a asp-action="Index" class="btn btn-secondary">
-    <i class="fas fa-arrow-left"></i> Voltar
-</a>
+<div class="d-flex justify-content-between">
+    <a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">
+        <i class="fas fa-edit"></i> Editar
+    </a>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+</div>

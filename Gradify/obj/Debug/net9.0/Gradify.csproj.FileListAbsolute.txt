@@ -232,8 +232,8 @@ C:\Users\gabmi\OneDrive\Área de Trabalho\Agora vai\Gradify\Gradify\obj\Debug\ne
 C:\Users\gabmi\OneDrive\Área de Trabalho\Agora vai\Gradify\Gradify\obj\Debug\net9.0\ref\Gradify.dll
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\appsettings.Development.json
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\appsettings.json
-C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.staticwebassets.endpoints.json
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.staticwebassets.runtime.json
+C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.staticwebassets.endpoints.json
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.exe
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.deps.json
 C:\Projetos\GitHub\Gradify\Gradify\bin\Debug\net9.0\Gradify.runtimeconfig.json

@@ -61,7 +61,16 @@ namespace Gradify.Controllers
                 return NotFound();
 
             var professores = _professorService.GetProfessores();
-            ViewBag.Professores = new SelectList(professores, "Id", "Nome");
+            if (professores == null || !professores.Any())
+            {
+                ModelState.AddModelError(string.Empty, "Não há professores disponíveis.");
+                return View();
+            }
+
+            ViewBag.Professores = new SelectList(professores, "Id", "Nome", turma.ProfessorId);
+
+            var diasDaSemana = new List<string> { "Segunda", "Terça", "Quarta", "Quinta", "Sexta" };
+            ViewBag.DiasDaSemana = diasDaSemana;
 
             var dto = new TurmaCriacaoDto
             {

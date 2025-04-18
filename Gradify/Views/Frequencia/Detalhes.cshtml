@@ -4,20 +4,36 @@
     ViewData["Title"] = "Detalhes da Frequência";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="mb-4 text-center">
+    <i class="fas fa-eye"></i> @ViewData["Title"]
+</h1>
 
-<div class="card p-3 shadow-sm rounded-3 bg-light">
-    <h3 class="mb-3">Frequência de <strong>@Model.AlunoNome</strong> na turma de <strong>@Model.Materia</strong></h3>
+<div class="card p-4 shadow rounded-4 bg-light">
+    <h4 class="mb-3">
+        <i class="fas fa-user-graduate"></i>
+        Frequência de <strong>@Model.AlunoNome</strong>
+    </h4>
 
-    <p><strong>Data da Aula:</strong> @Model.Data.ToString("dd/MM/yyyy")</p>
+    <p class="mb-2">
+        <i class="fas fa-book"></i>
+        <strong>Matéria:</strong> @Model.Materia
+    </p>
+
+    <p class="mb-2">
+        <i class="fas fa-calendar-day"></i>
+        <strong>Data da Aula:</strong> @Model.Data.ToString("dd/MM/yyyy")
+    </p>
 
     @if (!string.IsNullOrEmpty(Model.DiaSemana))
     {
-        <p><strong>Dia da semana da turma:</strong> @Model.DiaSemana</p>
+        <p class="mb-0">
+            <i class="fas fa-calendar-week"></i>
+            <strong>Dia da Semana da Turma:</strong> @Model.DiaSemana
+        </p>
     }
 </div>
 
-<div class="mt-4">
+<div class="mt-4 text-center">
     <a href="@Url.Action("Index")" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Voltar
     </a>

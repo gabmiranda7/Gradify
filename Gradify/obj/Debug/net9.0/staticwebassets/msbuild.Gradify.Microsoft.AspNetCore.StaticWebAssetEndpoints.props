@@ -28,13 +28,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Gradify.ide6xm30j8.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1125"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 00:43:42 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1125"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 02:13:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Gradify/Gradify.ide6xm30j8.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Gradify.ide6xm30j8.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ide6xm30j8"},{"Name":"integrity","Value":"sha256-umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns="},{"Name":"label","Value":"_content/Gradify/Gradify.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1125"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 00:43:42 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1125"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022umgDnL/DYTrfjhjeX0MDDQaw91OsKms1WlisexOhnns=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 02:13:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Gradify/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

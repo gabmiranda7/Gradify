@@ -1,6 +1,7 @@
 ﻿using Gradify.Data;
 using Gradify.Dto;
 using Gradify.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gradify.Services.Turma
 {
@@ -50,7 +51,10 @@ namespace Gradify.Services.Turma
 
         public TurmaLeituraDto ObterPorId(int id)
         {
-            var turma = _context.Turmas.Find(id);
+            var turma = _context.Turmas
+                .Include(t => t.Professor)
+                .FirstOrDefault(t => t.Id == id);
+
             if (turma == null) return null;
 
             return new TurmaLeituraDto
@@ -58,7 +62,7 @@ namespace Gradify.Services.Turma
                 Id = turma.Id,
                 Materia = turma.Materia,
                 DiaDaAula = turma.DiaDaAula,
-                ProfessorId = turma.ProfessorId
+                ProfessorNome = turma.Professor?.Nome
             };
         }
 

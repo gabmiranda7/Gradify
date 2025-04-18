@@ -1,11 +1,12 @@
 ﻿@model Gradify.Dto.ProfessorCriacaoDto
 
-<h2>Criar Novo Professor</h2>
+<h2><i class="fas fa-user-plus"></i> Criar Novo Professor</h2>
 
 <form asp-action="Criar">
-    <div class="form-group">
-        <label for="Nome">Nome</label>
+    <div class="mb-3">
+        <label for="Nome" class="form-label fw-bold">Nome</label>
         <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">

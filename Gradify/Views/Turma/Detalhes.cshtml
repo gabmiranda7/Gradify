@@ -1,20 +1,31 @@
 ﻿@model Gradify.Dto.TurmaLeituraDto
 
-<h2>Detalhes da Turma</h2>
+@{
+    ViewData["Title"] = "Detalhes da Turma";
+}
 
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">Matéria</dt>
-        <dd class="col-sm-10">@Model.Materia</dd>
+<h1 class="mb-4 text-center">
+    <i class="fas fa-chalkboard"></i> @ViewData["Title"]
+</h1>
 
-        <dt class="col-sm-2">Dia da Aula</dt>
-        <dd class="col-sm-10">@Model.DiaDaAula</dd>
+<div class="card p-4 shadow rounded-4 bg-light">
+    <div class="mb-3">
+        <h4 class="mb-2">Detalhes da Turma</h4>
+        <dl class="row">
+            <dt class="col-sm-3">Matéria</dt>
+            <dd class="col-sm-9">@Model.Materia</dd>
 
-        <dt class="col-sm-2">Professor</dt>
-        <dd class="col-sm-10">@Model.ProfessorNome</dd>
-    </dl>
+            <dt class="col-sm-3">Dia da Aula</dt>
+            <dd class="col-sm-9">@Model.DiaDaAula</dd>
+
+            <dt class="col-sm-3">Professor</dt>
+            <dd class="col-sm-9">@Model.ProfessorNome</dd>
+        </dl>
+    </div>
 </div>
 
-<a href="@Url.Action("Index", "Turma")" class="btn btn-secondary">
-    <i class="fas fa-arrow-left"></i> Voltar
-</a>
+<div class="mt-4 text-center">
+    <a href="@Url.Action("Index", "Turma")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+</div>

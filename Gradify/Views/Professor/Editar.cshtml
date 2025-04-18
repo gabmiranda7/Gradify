@@ -1,16 +1,29 @@
 ﻿@model Gradify.Dto.ProfessorLeituraDto
 
-<h2>Editar Professor</h2>
+@{
+    ViewData["Title"] = "Editar Professor";
+}
 
-<form asp-action="Editar">
+<h1 class="mb-4 text-center">
+    <i class="fas fa-edit"></i> @ViewData["Title"]
+</h1>
+
+<form asp-action="Editar" class="card p-4 shadow rounded-4 bg-light">
     <input type="hidden" asp-for="Id" />
 
-    <div class="form-group">
-        <label for="Nome">Nome</label>
+    <div class="form-group mb-3">
+        <label for="Nome" class="form-label">
+            <i class="fas fa-user"></i> Nome
+        </label>
         <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
     </div>
 
-    <button type="submit" class="btn btn-primary">
-        <i class="fas fa-save"></i> Salvar
-    </button>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Salvar
+        </button>
+        <a href="@Url.Action("Index", "Professor")" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Cancelar
+        </a>
+    </div>
 </form>

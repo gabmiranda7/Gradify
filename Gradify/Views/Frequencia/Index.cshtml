@@ -14,7 +14,16 @@
     </a>
 </p>
 
-<table class="table">
+<div class="form-floating mb-3 w-25 ms-auto">
+    <select id="ordenarSelect" class="form-select">
+        <option value="Aluno">Aluno</option>
+        <option value="Materia">Matéria</option>
+        <option value="Data">Data</option>
+    </select>
+    <label for="ordenarSelect">Ordenar por</label>
+</div>
+
+<table class="table" id="tabelaFrequencias">
     <thead>
         <tr>
             <th>Aluno</th>
@@ -24,21 +33,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.OrderBy(f => f.AlunoNome))
+        @foreach (var item in Model)
         {
             <tr>
                 <td>@item.AlunoNome</td>
                 <td>@item.Materia</td>
-                <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                <td data-date="@item.Data.ToString("yyyy-MM-dd")">@item.Data.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a href="@Url.Action("Detalhes", new { id = item.Id })" class="btn btn-info btn-sm">
-                        <i class="fas fa-info-circle"></i> Detalhes
+                    <a href="@Url.Action("Detalhes", new { id = item.Id })" class="btn btn-info btn-sm me-1">
+                        <i class="fas fa-info-circle"></i>
                     </a>
-                    <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-warning btn-sm">
-                        <i class="fas fa-edit"></i> Editar
+                    <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-warning btn-sm me-1">
+                        <i class="fas fa-edit"></i>
                     </a>
                     <a href="javascript:void(0);" onclick="confirmarExclusao(@item.Id)" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i> Excluir
+                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>
@@ -88,5 +97,39 @@
                 }
             });
         }
+
+        document.getElementById("ordenarSelect").addEventListener("change", function () {
+            const criterio = this.value;
+            const tabela = document.getElementById("tabelaFrequencias").getElementsByTagName("tbody")[0];
+            const linhas = Array.from(tabela.rows);
+
+            let colunaIndex;
+            switch (criterio) {
+                case "Aluno":
+                    colunaIndex = 0;
+                    break;
+                case "Materia":
+                    colunaIndex = 1;
+                    break;
+                case "Data":
+                    colunaIndex = 2;
+                    break;
+                default:
+                    colunaIndex = 0;
+            }
+
+            linhas.sort(function (a, b) {
+                const valA = colunaIndex === 2
+                    ? new Date(a.cells[colunaIndex].dataset.date)
+                    : a.cells[colunaIndex].innerText.toLowerCase();
+                const valB = colunaIndex === 2
+                    ? new Date(b.cells[colunaIndex].dataset.date)
+                    : b.cells[colunaIndex].innerText.toLowerCase();
+
+                return valA > valB ? 1 : valA < valB ? -1 : 0;
+            });
+
+            linhas.forEach(linha => tabela.appendChild(linha));
+        });
     </script>
 }

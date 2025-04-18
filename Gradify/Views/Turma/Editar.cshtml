@@ -1,36 +1,47 @@
-﻿@model Gradify.Dto.TurmaLeituraDto
+﻿@model Gradify.Dto.TurmaCriacaoDto
 
-<h2>Editar Turma</h2>
+<div class="card shadow-sm rounded-3 mt-4 p-4">
+    <h2 class="mb-4">
+        <i class="fas fa-edit"></i> Editar Turma
+    </h2>
 
-<form asp-action="Editar" method="post">
-    <input type="hidden" asp-for="Id" />
+    <form asp-action="Editar" method="post">
+        <input type="hidden" asp-for="Id" />
 
-    <div class="form-group">
-        <label for="Materia">Matéria</label>
-        <input type="text" class="form-control" id="Materia" name="Materia" value="@Model.Materia" required />
-    </div>
+        <div class="form-group mb-3">
+            <label asp-for="Materia" class="form-label">Matéria</label>
+            <input asp-for="Materia" class="form-control" required />
+        </div>
 
-    <div class="form-group">
-        <label for="DiaDaAula">Dia da Aula</label>
-        <select class="form-control" asp-for="DiaDaAula" required>
-            @foreach (var dia in ViewBag.DiasDaSemana)
-            {
-                <option value="@dia">@dia</option>
-            }
-        </select>
-    </div>
+        <div class="form-group mb-3">
+            <label asp-for="DiaDaAula" class="form-label">Dia da Aula</label>
+            <select asp-for="DiaDaAula" class="form-control" required>
+                @foreach (string dia in ViewBag.DiasDaSemana)
+                {
+                    <option value="@dia" selected="@(Model.DiaDaAula == dia ? "selected" : null)">@dia</option>
+                }
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label for="ProfessorId">Professor</label>
-        <select class="form-control" asp-for="ProfessorId" required>
-            @foreach (var professor in ViewBag.Professores)
-            {
-                <option value="@professor.Id">@professor.Nome</option>
-            }
-        </select>
-    </div>
+        <div class="form-group mb-4">
+            <label asp-for="ProfessorId" class="form-label">Professor</label>
+            <select asp-for="ProfessorId" class="form-control" required>
+                @foreach (SelectListItem professor in ViewBag.Professores)
+                {
+                    <option value="@professor.Value" selected="@(Model.ProfessorId.ToString() == professor.Value ? "selected" : null)">
+                        @professor.Text
+                    </option>
+                }
+            </select>
+        </div>
 
-    <button type="submit" class="btn btn-primary">
-        <i class="fas fa-save"></i> Salvar
-    </button>
-</form>
+        <div class="d-flex justify-content-between">
+            <a href="@Url.Action("Index", "Turma")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Salvar
+            </button>
+        </div>
+    </form>
+</div>
