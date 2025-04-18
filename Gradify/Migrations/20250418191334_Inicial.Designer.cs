@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gradify.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250414233244_Inicial")]
+    [Migration("20250418191334_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />

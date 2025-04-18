@@ -16,7 +16,7 @@
     @foreach (var turma in Model.OrderBy(t => t.Materia))
     {
         <div class="col-md-4 mb-4">
-            <div class="card shadow-sm bg-white rounded">
+            <div class="card shadow-sm rounded dark-mode-card">
                 <div class="card-body">
                     <h5 class="card-title">@turma.Materia</h5>
                     <p class="card-text"><strong>Dia da Aula:</strong> @turma.DiaDaAula</p>

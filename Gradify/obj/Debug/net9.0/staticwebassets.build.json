@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VujUrjhreMrJns1ErFXTNsuppjoWTcB01JGGtJJrYt0=",
+  "Hash": "7qA+d8XZ9yWVF3mH+UDq70qU8mDZ6U1W8AynizPa9fw=",
   "Source": "Gradify",
   "BasePath": "_content/Gradify",
   "Mode": "Default",
@@ -1256,12 +1256,12 @@
       "OriginalItemSpec": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-b9sayid5wm.gz",
+      "Identity": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-cp2p0zupq0.gz",
       "SourceId": "Gradify",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Gradify",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=cp2p0zupq0}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1270,8 +1270,8 @@
       "RelatedAsset": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wf4wcyqcqt",
-      "Integrity": "fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=",
+      "Fingerprint": "b6es433b7w",
+      "Integrity": "PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\css\\site.css"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "cp2p0zupq0",
+      "Integrity": "EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2728,13 +2728,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-b9sayid5wm.gz",
+      "Route": "css/site.cp2p0zupq0.css",
+      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-cp2p0zupq0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003125000000"
+          "Quality": "0.000976562500"
         }
       ],
       "ResponseHeaders": [
@@ -2744,15 +2744,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1023"
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2772,13 +2772,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "cp2p0zupq0"
         },
         {
           "Name": "label",
@@ -2786,12 +2786,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.cp2p0zupq0.css",
       "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2801,7 +2801,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "6652"
         },
         {
           "Name": "Content-Type",
@@ -2809,11 +2809,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2823,7 +2823,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "cp2p0zupq0"
         },
         {
           "Name": "label",
@@ -2831,13 +2831,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-b9sayid5wm.gz",
+      "Route": "css/site.cp2p0zupq0.css.gz",
+      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-cp2p0zupq0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2846,7 +2846,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1023"
         },
         {
           "Name": "Content-Type",
@@ -2854,11 +2854,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2876,7 +2876,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "cp2p0zupq0"
         },
         {
           "Name": "label",
@@ -2884,18 +2884,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
+          "Value": "sha256-PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ="
         }
       ]
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-b9sayid5wm.gz",
+      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-cp2p0zupq0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003125000000"
+          "Quality": "0.000976562500"
         }
       ],
       "ResponseHeaders": [
@@ -2905,15 +2905,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1023"
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2933,13 +2933,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0="
         }
       ]
     },
@@ -2954,7 +2954,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "6652"
         },
         {
           "Name": "Content-Type",
@@ -2962,11 +2962,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2976,13 +2976,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-EJoXNR6kUb6FA+UpK+/4DJ+i6/9Vpkrif1QIAoT1VE0="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-b9sayid5wm.gz",
+      "AssetFile": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\obj\\Debug\\net9.0\\compressed\\xrqbkhfrzg-cp2p0zupq0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2991,7 +2991,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1023"
         },
         {
           "Name": "Content-Type",
@@ -2999,11 +2999,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 14 Apr 2025 22:46:25 GMT"
+          "Value": "Fri, 18 Apr 2025 19:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3021,7 +3021,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
+          "Value": "sha256-PWlECdpFVsCdcCjqE6eQ/06AkJfQhOV+CZKR/fnL/WQ="
         }
       ]
     },

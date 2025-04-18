@@ -4,41 +4,102 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gradify</title>
+
+    <script>
+        (function () {
+            const darkMode = localStorage.getItem("darkMode");
+            if (darkMode === "enabled") {
+                document.documentElement.classList.add("dark-init");
+            }
+        })();
+    </script>
+
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Gradify.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/rUn...etc" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container d-flex justify-content-center">
+            <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-graduation-cap"></i>
                     <span class="fw-bold">Gradify</span>
                 </a>
+                <button id="toggle-dark-mode" class="btn btn-sm" style="color: #212121; border: none; background-color: transparent;">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Gradify
-        </div>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("toggle-dark-mode");
+
+            const enableDarkMode = () => {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".navbar").classList.add("dark-mode");
+
+                document.querySelectorAll(".card").forEach(card => {
+                    card.classList.add("dark-mode");
+                });
+
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                toggleBtn.style.color = "#ffffff";
+                toggleBtn.style.borderColor = "#ffffff";
+                toggleBtn.style.backgroundColor = "#333";
+
+                localStorage.setItem("darkMode", "enabled");
+            };
+
+            const disableDarkMode = () => {
+                document.body.classList.remove("dark-mode");
+                document.querySelector(".navbar").classList.remove("dark-mode");
+
+                document.querySelectorAll(".card").forEach(card => {
+                    card.classList.remove("dark-mode");
+                });
+
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                toggleBtn.style.color = "#212121";
+                toggleBtn.style.borderColor = "#212121";
+                toggleBtn.style.backgroundColor = "transparent";
+
+                localStorage.setItem("darkMode", "disabled");
+            };
+
+            if (localStorage.getItem("darkMode") === "enabled") {
+                enableDarkMode();
+            }
+
+            document.documentElement.classList.remove("dark-init");
+
+            toggleBtn.addEventListener("click", function () {
+                if (document.body.classList.contains("dark-mode")) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
