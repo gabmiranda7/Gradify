@@ -11,6 +11,7 @@
         public int Id { get; set; }
         public string Comentario { get; set; }
         public string Materia { get; set; }
+        public DateTime DataCriacao { get; set; }
         public int TurmaId { get; set; }
     }
 }

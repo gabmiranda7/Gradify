@@ -1,6 +1,9 @@
 ﻿using Gradify.Data;
 using Gradify.Dto;
 using Gradify.Services.Anotacao;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AnotacaoService : IAnotacaoInterface
 {
@@ -19,7 +22,8 @@ public class AnotacaoService : IAnotacaoInterface
         var anotacao = new Gradify.Models.Anotacao
         {
             Comentario = dto.Comentario,
-            TurmaId = dto.TurmaId
+            TurmaId = dto.TurmaId,
+            DataCriacao = DateTime.Now
         };
 
         _context.Anotacoes.Add(anotacao);
@@ -29,7 +33,9 @@ public class AnotacaoService : IAnotacaoInterface
         {
             Id = anotacao.Id,
             Comentario = anotacao.Comentario,
-            Materia = turma.Materia 
+            Materia = turma.Materia,
+            TurmaId = dto.TurmaId,
+            DataCriacao = anotacao.DataCriacao
         };
     }
 
@@ -43,7 +49,9 @@ public class AnotacaoService : IAnotacaoInterface
                   {
                       Id = anotacao.Id,
                       Comentario = anotacao.Comentario,
-                      Materia = turma.Materia
+                      Materia = turma.Materia,
+                      TurmaId = turma.Id,
+                      DataCriacao = anotacao.DataCriacao
                   })
             .OrderBy(a => a.Materia)
             .ToList();
@@ -61,20 +69,21 @@ public class AnotacaoService : IAnotacaoInterface
         {
             Id = anotacao.Id,
             Comentario = anotacao.Comentario,
-            Materia = materia
+            Materia = materia,
+            TurmaId = anotacao.TurmaId,
+            DataCriacao = anotacao.DataCriacao
         };
     }
 
     public bool Excluir(int id)
     {
-        var anotacao = _context.Anotacoes.Find(id); 
-        if (anotacao == null) return false; 
+        var anotacao = _context.Anotacoes.Find(id);
+        if (anotacao == null) return false;
 
         _context.Anotacoes.Remove(anotacao);
-        _context.SaveChanges(); 
-        return true; 
+        _context.SaveChanges();
+        return true;
     }
-
 
     public AnotacaoLeituraDto Editar(int id, AnotacaoCriacaoDto dto)
     {
@@ -94,7 +103,9 @@ public class AnotacaoService : IAnotacaoInterface
         {
             Id = anotacao.Id,
             Comentario = anotacao.Comentario,
-            Materia = materia
+            Materia = materia,
+            TurmaId = dto.TurmaId,
+            DataCriacao = anotacao.DataCriacao
         };
     }
 }

@@ -114,23 +114,17 @@ namespace Gradify.Controllers
             return View(turma);
         }
 
-        public IActionResult Excluir(int id)
-        {
-            var turma = _turmaService.ObterPorId(id);
-            if (turma == null)
-                return NotFound();
-
-            return View(turma);
-        }
-
-        [HttpPost, ActionName("Excluir")]
-        [ValidateAntiForgeryToken]
-        public IActionResult ConfirmarExclusao(int id)
+        [HttpPost]
+        public IActionResult ExcluirConfirmado(int id)
         {
             var sucesso = _turmaService.Excluir(id);
-            if (!sucesso)
-                return NotFound();
+            if (sucesso)
+            {
+                TempData["Sucesso"] = "Turma excluída com sucesso.";
+                return RedirectToAction(nameof(Index));
+            }
 
+            TempData["Erro"] = "Erro ao excluir a turma.";
             return RedirectToAction(nameof(Index));
         }
     }

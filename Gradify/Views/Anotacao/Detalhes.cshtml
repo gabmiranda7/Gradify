@@ -21,6 +21,15 @@
             <i class="fas fa-book-open"></i> Matéria
         </h5>
         <p class="card-text fs-5">@Model.Materia</p>
+
+        <hr />
+
+        <h5 class="card-title mt-4">
+            <i class="fas fa-calendar-alt"></i> Data de Criação
+        </h5>
+        <p class="card-text fs-5">
+            @Model.DataCriacao.ToString("dd/MM/yyyy HH:mm")
+        </p>
     </div>
 </div>
 

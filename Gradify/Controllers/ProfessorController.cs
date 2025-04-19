@@ -81,24 +81,17 @@ namespace Gradify.Controllers
 
         public IActionResult Excluir(int id)
         {
-            var professor = _professorService.ObterPorId(id);
-            if (professor == null)
-            {
-                return NotFound();
-            }
-            return View(professor);
-        }
-
-        [HttpPost, ActionName("Excluir")]
-        [ValidateAntiForgeryToken]
-        public IActionResult ExcluirConfirmado(int id)
-        {
             var success = _professorService.Excluir(id);
             if (success)
             {
-                return RedirectToAction(nameof(Index));
+                TempData["Sucesso"] = "Professor excluído com sucesso!";
             }
-            return NotFound();
+            else
+            {
+                TempData["Erro"] = "Erro ao excluir o professor.";
+            }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

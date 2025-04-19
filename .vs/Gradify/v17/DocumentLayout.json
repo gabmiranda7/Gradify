@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Projetos\\GitHub\\Gradify\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\services\\anotacao\\anotacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\services\\anotacao\\anotacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\turma\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\turma\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\views\\turma\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\views\\turma\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|c:\\projetos\\github\\gradify\\gradify\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA13816-1935-463B-B48C-213CEBDD819C}|Gradify\\Gradify.csproj|solutionrelative:gradify\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Detalhes.cshtml",
-              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Turma\\Detalhes.cshtml",
-              "RelativeDocumentMoniker": "Gradify\\Views\\Turma\\Detalhes.cshtml",
-              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Turma\\Detalhes.cshtml",
-              "RelativeToolTip": "Gradify\\Views\\Turma\\Detalhes.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-19T17:50:46.507Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -40,14 +31,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "Gradify\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "Gradify\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-19T17:51:29.948Z",
+              "Title": "AnotacaoService.cs",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Services\\Anotacao\\AnotacaoService.cs",
+              "RelativeDocumentMoniker": "Gradify\\Services\\Anotacao\\AnotacaoService.cs",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Services\\Anotacao\\AnotacaoService.cs",
+              "RelativeToolTip": "Gradify\\Services\\Anotacao\\AnotacaoService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T20:23:11.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Turma\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gradify\\Views\\Turma\\Index.cshtml",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Views\\Turma\\Index.cshtml",
+              "RelativeToolTip": "Gradify\\Views\\Turma\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-19T20:13:12.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TurmaController.cs",
+              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Controllers\\TurmaController.cs",
+              "RelativeDocumentMoniker": "Gradify\\Controllers\\TurmaController.cs",
+              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\Controllers\\TurmaController.cs",
+              "RelativeToolTip": "Gradify\\Controllers\\TurmaController.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAqwIAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T20:12:45.121Z",
               "EditorCaption": ""
             }
           ]

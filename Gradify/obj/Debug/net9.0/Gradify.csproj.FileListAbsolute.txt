@@ -383,6 +383,7 @@ C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\Gradify.sourcelink.json
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\scopedcss\bundle\Gradify.styles.css
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\scopedcss\projectbundle\Gradify.bundle.scp.css
+C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\xrqbkhfrzg-z9kb396i98.gz
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\efdmwfijuk-61n19gt1b8.gz
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\8s9v31lyoy-xtxxf3hu2r.gz
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\osc4panjdi-bqjiyaj88i.gz
@@ -462,4 +463,3 @@ C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\refint\Gradify.dll
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\Gradify.pdb
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\Gradify.genruntimeconfig.cache
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\ref\Gradify.dll
-C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\xrqbkhfrzg-z9kb396i98.gz

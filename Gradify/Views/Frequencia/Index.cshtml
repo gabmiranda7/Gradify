@@ -86,11 +86,10 @@
                 title: 'Você tem certeza?',
                 text: "Esta ação não pode ser desfeita!",
                 icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#d33',
                 confirmButtonText: 'Sim, excluir!',
-                cancelButtonText: 'Cancelar'
+                background: '#2c2f33',
+                color: '#ffffff'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '@Url.Action("Excluir", "Frequencia")/' + id;
@@ -135,4 +134,28 @@
             linhas.forEach(linha => tabela.appendChild(linha));
         });
     </script>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: '@TempData["Sucesso"]',
+                confirmButtonColor: '#3085d6'
+            });
+        </script>
+    }
+
+    @if (TempData["Erro"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: '@TempData["Erro"]',
+                confirmButtonColor: '#d33'
+            });
+        </script>
+    }
 }
