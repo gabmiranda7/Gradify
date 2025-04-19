@@ -462,4 +462,4 @@ C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\refint\Gradify.dll
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\Gradify.pdb
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\Gradify.genruntimeconfig.cache
 C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\ref\Gradify.dll
-C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\xrqbkhfrzg-cp2p0zupq0.gz
+C:\Projetos\GitHub\Gradify\Gradify\obj\Debug\net9.0\compressed\xrqbkhfrzg-z9kb396i98.gz

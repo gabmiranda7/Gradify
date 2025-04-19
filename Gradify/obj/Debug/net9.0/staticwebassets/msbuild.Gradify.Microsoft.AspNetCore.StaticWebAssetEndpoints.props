@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/Gradify/css/site.cp2p0zupq0.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cp2p0zupq0"},{"Name":"integrity","Value":"sha256-EJoXNR6kUb6FA\u002BUpK\u002B/4DJ\u002Bi6/9Vpkrif1QIAoT1VE0="},{"Name":"label","Value":"_content/Gradify/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6652"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022EJoXNR6kUb6FA\u002BUpK\u002B/4DJ\u002Bi6/9Vpkrif1QIAoT1VE0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 19:32:22 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Gradify/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-EJoXNR6kUb6FA\u002BUpK\u002B/4DJ\u002Bi6/9Vpkrif1QIAoT1VE0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6652"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022EJoXNR6kUb6FA\u002BUpK\u002B/4DJ\u002Bi6/9Vpkrif1QIAoT1VE0=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 19:32:22 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mT0XPambavCBBZleLVU8IUa7ZuuDMbGqUlTG6iG97A4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6236"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mT0XPambavCBBZleLVU8IUa7ZuuDMbGqUlTG6iG97A4=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 17:54:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Gradify/css/site.z9kb396i98.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"z9kb396i98"},{"Name":"integrity","Value":"sha256-mT0XPambavCBBZleLVU8IUa7ZuuDMbGqUlTG6iG97A4="},{"Name":"label","Value":"_content/Gradify/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6236"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mT0XPambavCBBZleLVU8IUa7ZuuDMbGqUlTG6iG97A4=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 17:54:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Gradify/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
