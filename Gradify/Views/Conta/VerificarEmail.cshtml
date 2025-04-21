@@ -1,0 +1,34 @@
+﻿@using Gradify.ViewModels;
+@model VerificarEmailViewModel;
+
+@{
+    ViewData["Title"] = "Verificar Email";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="account-container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="account-box shadow rounded p-4 bg-white" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4 fw-bold text-success">Verificar Email</h2>
+
+        <form asp-action="VerificarEmail" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 py-2">
+                <i class="fas fa-envelope me-2"></i> Enviar Verificação
+            </button>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none small">← Voltar para o início</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

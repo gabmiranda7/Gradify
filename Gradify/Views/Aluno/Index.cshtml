@@ -59,26 +59,26 @@
     </script>
 }
 
-    @if (TempData["Sucesso"] != null)
-    {
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Sucesso!',
-                text: '@TempData["Sucesso"]',
-                confirmButtonColor: '#3085d6'
-            });
-        </script>
-    }
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
 
-    @if (TempData["Erro"] != null)
-    {
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro!',
-                text: '@TempData["Erro"]',
-                confirmButtonColor: '#d33'
-            });
-        </script>
-    }
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
+    </script>
+}

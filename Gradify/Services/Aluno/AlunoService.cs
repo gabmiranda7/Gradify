@@ -1,6 +1,7 @@
 ﻿using Gradify.Data;
 using Gradify.Dto;
 using Gradify.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gradify.Services.Aluno
 {

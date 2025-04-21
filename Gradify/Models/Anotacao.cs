@@ -1,21 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace Gradify.Models
 {
     public class Anotacao
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]
         public string Comentario { get; set; } = string.Empty;
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
 
-        [ForeignKey("Turma")]
         public int TurmaId { get; set; }
-
-        public Turma Turma { get; set; }
-
-        public DateTime DataCriacao { get; set; }  
+        public Turma Turma { get; set; } 
     }
 }

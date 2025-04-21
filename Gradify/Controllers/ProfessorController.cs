@@ -3,6 +3,7 @@ using Gradify.Services;
 using Microsoft.AspNetCore.Mvc;
 using Gradify.Dto;
 using Gradify.Services.Professor;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gradify.Controllers
 {
@@ -15,12 +16,14 @@ namespace Gradify.Controllers
             _professorService = professorService;
         }
 
+        [Authorize(Roles = "Aluno, Professor")]
         public IActionResult Index()
         {
             var professores = _professorService.GetProfessores();
             return View(professores);
         }
 
+        [Authorize(Roles = "Aluno, Professor")]
         public IActionResult Detalhes(int id)
         {
             var professor = _professorService.ObterPorId(id);
@@ -31,6 +34,7 @@ namespace Gradify.Controllers
             return View(professor);
         }
 
+        [Authorize(Roles = "Professor")]
         public IActionResult Criar()
         {
             return View(new ProfessorCriacaoDto());
@@ -38,6 +42,7 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Professor")]
         public IActionResult Criar(ProfessorCriacaoDto dto)
         {
             if (ModelState.IsValid)
@@ -48,6 +53,7 @@ namespace Gradify.Controllers
             return View(dto);
         }
 
+        [Authorize(Roles = "Professor")]
         public IActionResult Editar(int id)
         {
             var professor = _professorService.ObterPorId(id);
@@ -60,6 +66,7 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Professor")]
         public IActionResult Editar(int id, ProfessorCriacaoDto dto)
         {
             if (id != dto.Id)
@@ -79,6 +86,7 @@ namespace Gradify.Controllers
             return View(dto);
         }
 
+        [Authorize(Roles = "Professor")]
         public IActionResult Excluir(int id)
         {
             var success = _professorService.Excluir(id);

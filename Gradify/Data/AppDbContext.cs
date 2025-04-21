@@ -1,11 +1,10 @@
 ﻿using Gradify.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace Gradify.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<Usuario>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -22,6 +21,25 @@ namespace Gradify.Data
         {
             base.OnModelCreating(modelBuilder);
 
+
+            modelBuilder.Entity<Anotacao>()
+                .HasOne(a => a.Turma)
+                .WithMany(t => t.Anotacoes)
+                .HasForeignKey(a => a.TurmaId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Frequencia>()
+                .HasOne(f => f.Aluno)
+                .WithMany(a => a.Frequencias)
+                .HasForeignKey(f => f.AlunoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Frequencia>()
+                .HasOne(f => f.Turma)
+                .WithMany(t => t.Frequencias)
+                .HasForeignKey(f => f.TurmaId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<Turma>()
                 .HasMany(t => t.Alunos)
                 .WithMany(a => a.Turmas)
@@ -32,24 +50,6 @@ namespace Gradify.Data
                 .WithMany(p => p.Turmas)
                 .HasForeignKey(t => t.ProfessorId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Anotacao>()
-                .HasOne(a => a.Turma)
-                .WithMany(t => t.Anotacoes)
-                .HasForeignKey(a => a.TurmaId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Frequencia>()
-                .HasOne(f => f.Aluno)
-                .WithMany()
-                .HasForeignKey(f => f.AlunoId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Frequencia>()
-                .HasOne(f => f.Turma)
-                .WithMany(t => t.Frequencias)
-                .HasForeignKey(f => f.TurmaId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

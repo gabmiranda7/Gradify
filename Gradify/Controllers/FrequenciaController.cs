@@ -2,6 +2,7 @@
 using Gradify.Services.Aluno;
 using Gradify.Services.Frequencia;
 using Gradify.Services.Turma;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -23,6 +24,7 @@ namespace Gradify.Controllers
             _turmaService = turmaService;
         }
 
+        [Authorize(Roles = "Aluno, Professor")]
         public IActionResult Index()
         {
             var frequencias = _frequenciaService.GetFrequencias();

@@ -1,6 +1,7 @@
 ﻿using Gradify.Dto;
 using Gradify.Services.Professor;
 using Gradify.Services.Turma;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -17,12 +18,14 @@ namespace Gradify.Controllers
             _professorService = professorService;
         }
 
+        [Authorize(Roles = "Aluno, Professor")]
         public IActionResult Index()
         {
             var turmas = _turmaService.GetTurmas();
             return View(turmas);
         }
 
+        [Authorize(Roles = "Professor")]
         public IActionResult Criar()
         {
             var diasDaSemana = new List<string> { "Segunda", "Terça", "Quarta", "Quinta", "Sexta" };
@@ -37,6 +40,7 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Professor")]
         public IActionResult Criar(TurmaCriacaoDto dto)
         {
             var diasValidos = new List<string> { "Segunda", "Terça", "Quarta", "Quinta", "Sexta" };
@@ -54,6 +58,7 @@ namespace Gradify.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Professor")]
         public IActionResult Editar(int id)
         {
             var turma = _turmaService.ObterPorId(id);
@@ -85,6 +90,7 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Professor")]
         public IActionResult Editar(int id, TurmaCriacaoDto dto)
         {
             var diasValidos = new List<string> { "Segunda", "Terça", "Quarta", "Quinta", "Sexta" };
@@ -115,6 +121,7 @@ namespace Gradify.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Professor")]
         public IActionResult ExcluirConfirmado(int id)
         {
             var sucesso = _turmaService.Excluir(id);

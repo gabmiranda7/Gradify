@@ -14,11 +14,10 @@
         })();
     </script>
 
-    <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Gradify.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
@@ -29,9 +28,27 @@
                     <i class="fas fa-graduation-cap"></i>
                     <span class="fw-bold">Gradify</span>
                 </a>
-                <button id="toggle-dark-mode" class="btn btn-sm" style="color: #212121; border: none; background-color: transparent;">
-                    <i class="fas fa-moon"></i>
-                </button>
+
+                <div class="d-flex align-items-center gap-3">
+                    <button id="toggle-dark-mode" class="btn btn-sm" style="color: #212121; border: none; background-color: transparent;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    @if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <form method="post" asp-area="" asp-controller="Conta" asp-action="Logout" class="d-inline">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-area="" asp-controller="Conta" asp-action="Login" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    }
+                </div>
             </div>
         </nav>
     </header>
@@ -55,32 +72,20 @@
             const enableDarkMode = () => {
                 document.body.classList.add("dark-mode");
                 document.querySelector(".navbar").classList.add("dark-mode");
-
-                document.querySelectorAll(".card").forEach(card => {
-                    card.classList.add("dark-mode");
-                });
-
+                document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
                 toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
                 toggleBtn.style.color = "#ffffff";
-                toggleBtn.style.borderColor = "#ffffff";
                 toggleBtn.style.backgroundColor = "#333";
-
                 localStorage.setItem("darkMode", "enabled");
             };
 
             const disableDarkMode = () => {
                 document.body.classList.remove("dark-mode");
                 document.querySelector(".navbar").classList.remove("dark-mode");
-
-                document.querySelectorAll(".card").forEach(card => {
-                    card.classList.remove("dark-mode");
-                });
-
+                document.querySelectorAll(".card").forEach(card => card.classList.remove("dark-mode"));
                 toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
                 toggleBtn.style.color = "#212121";
-                toggleBtn.style.borderColor = "#212121";
                 toggleBtn.style.backgroundColor = "transparent";
-
                 localStorage.setItem("darkMode", "disabled");
             };
 

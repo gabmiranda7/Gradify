@@ -9,5 +9,6 @@ namespace Gradify.Services.Frequencia
         IEnumerable<FrequenciaLeituraDto> GetFrequencias();
         FrequenciaLeituraDto ObterPorId(int id);
         bool Excluir(int id);
+        List<FrequenciaLeituraDto> BuscarFrequenciasPorAluno(int alunoId);
     }
 }

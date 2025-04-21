@@ -139,5 +139,22 @@ namespace Gradify.Services.Frequencia
                 DiaSemana = turma?.DiaDaAula
             };
         }
+
+        public List<FrequenciaLeituraDto> BuscarFrequenciasPorAluno(int alunoId)
+        {
+            return _context.Frequencias
+                .Where(f => f.AlunoId == alunoId)
+                .Select(f => new FrequenciaLeituraDto
+                {
+                    Id = f.Id,
+                    AlunoId = f.AlunoId,
+                    AlunoNome = f.Aluno.Nome,
+                    TurmaId = f.TurmaId,
+                    Materia = f.Turma.Materia,
+                    DiaSemana = f.Turma.DiaDaAula,
+                    Data = f.Data
+                })
+                .ToList();
+        }
     }
 }

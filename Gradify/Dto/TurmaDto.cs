@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Materia { get; set; } = string.Empty;
-        public string DiaDaAula { get; set; } = string.Empty;  
+        public string DiaDaAula { get; set; } = string.Empty;
         public int ProfessorId { get; set; }
     }
 

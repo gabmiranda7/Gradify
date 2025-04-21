@@ -1,6 +1,7 @@
 ﻿using Gradify.Data;
 using Gradify.Dto;
 using Gradify.Services.Anotacao;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,18 +43,14 @@ public class AnotacaoService : IAnotacaoInterface
     public IEnumerable<AnotacaoLeituraDto> GetAnotacoes()
     {
         return _context.Anotacoes
-            .Join(_context.Turmas,
-                  anotacao => anotacao.TurmaId,
-                  turma => turma.Id,
-                  (anotacao, turma) => new AnotacaoLeituraDto
-                  {
-                      Id = anotacao.Id,
-                      Comentario = anotacao.Comentario,
-                      Materia = turma.Materia,
-                      TurmaId = turma.Id,
-                      DataCriacao = anotacao.DataCriacao
-                  })
-            .OrderBy(a => a.Materia)
+            .OrderBy(a => a.DataCriacao)
+            .Select(a => new AnotacaoLeituraDto
+            {
+                Id = a.Id,
+                Comentario = a.Comentario,
+                Materia = a.Turma.Materia,
+                DataCriacao = a.DataCriacao,
+            })
             .ToList();
     }
 

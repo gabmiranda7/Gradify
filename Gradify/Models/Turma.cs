@@ -13,7 +13,7 @@ namespace Gradify.Models
         public string Materia { get; set; } = string.Empty;
 
         [Required]
-        public string DiaDaAula { get; set; } = string.Empty;  
+        public string DiaDaAula { get; set; } = string.Empty;
 
         [ForeignKey("Professor")]
         public int ProfessorId { get; set; }
@@ -21,9 +21,7 @@ namespace Gradify.Models
         public Professor Professor { get; set; }
 
         public ICollection<Aluno> Alunos { get; set; } = new List<Aluno>();
-
-        public ICollection<Frequencia> Frequencias { get; set; } = new List<Frequencia>();
-
         public ICollection<Anotacao> Anotacoes { get; set; } = new List<Anotacao>();
+        public ICollection<Frequencia> Frequencias { get; set; } = new List<Frequencia>();
     }
 }

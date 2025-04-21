@@ -1,4 +1,6 @@
-﻿namespace Gradify.Dto
+﻿using Gradify.Models;
+
+namespace Gradify.Dto
 {
     public class AnotacaoCriacaoDto
     {

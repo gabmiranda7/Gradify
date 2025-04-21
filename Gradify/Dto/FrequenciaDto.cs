@@ -4,7 +4,7 @@
     {
         public int AlunoId { get; set; }
         public int TurmaId { get; set; }
-        public DateTime Data { get; set; } 
+        public DateTime Data { get; set; }
     }
 
     public class FrequenciaLeituraDto
@@ -15,8 +15,8 @@
         public string AlunoNome { get; set; }
 
         public int TurmaId { get; set; }
-        public string Materia { get; set; }    
-        public string DiaSemana { get; set; }   
-        public DateTime Data { get; set; }     
+        public string Materia { get; set; }
+        public string DiaSemana { get; set; }
+        public DateTime Data { get; set; }
     }
 }

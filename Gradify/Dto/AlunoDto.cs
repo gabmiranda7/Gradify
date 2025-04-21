@@ -1,7 +1,9 @@
-﻿namespace Gradify.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Gradify.Dto
 {
     public class AlunoCriacaoDto
-    { 
+    {
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Matricula { get; set; } = string.Empty;
@@ -12,5 +14,6 @@
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Matricula { get; set; } = string.Empty;
+        public List<FrequenciaLeituraDto>? Frequencias { get; set; }
     }
 }
