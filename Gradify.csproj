@@ -7,13 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\Anotacoes\**" />
     <Compile Remove="ViewModels\**" />
-    <Content Remove="Services\Anotacoes\**" />
     <Content Remove="ViewModels\**" />
-    <EmbeddedResource Remove="Services\Anotacoes\**" />
     <EmbeddedResource Remove="ViewModels\**" />
-    <None Remove="Services\Anotacoes\**" />
     <None Remove="ViewModels\**" />
   </ItemGroup>
 
