@@ -8,16 +8,12 @@
 
   <ItemGroup>
     <Compile Remove="Services\Anotacoes\**" />
-    <Compile Remove="Services\Professores\**" />
     <Compile Remove="ViewModels\**" />
     <Content Remove="Services\Anotacoes\**" />
-    <Content Remove="Services\Professores\**" />
     <Content Remove="ViewModels\**" />
     <EmbeddedResource Remove="Services\Anotacoes\**" />
-    <EmbeddedResource Remove="Services\Professores\**" />
     <EmbeddedResource Remove="ViewModels\**" />
     <None Remove="Services\Anotacoes\**" />
-    <None Remove="Services\Professores\**" />
     <None Remove="ViewModels\**" />
   </ItemGroup>
 
