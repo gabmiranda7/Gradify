@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabmi\\Dropbox\\Gabriel\\Faculdade\\5° Semestre\\Gradify\\Gradify.csproj": {}
+    "C:\\Projetos\\GitHub\\Gradify\\Gradify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabmi\\Dropbox\\Gabriel\\Faculdade\\5° Semestre\\Gradify\\Gradify.csproj": {
+    "C:\\Projetos\\GitHub\\Gradify\\Gradify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabmi\\Dropbox\\Gabriel\\Faculdade\\5° Semestre\\Gradify\\Gradify.csproj",
+        "projectUniqueName": "C:\\Projetos\\GitHub\\Gradify\\Gradify.csproj",
         "projectName": "Gradify",
-        "projectPath": "C:\\Users\\gabmi\\Dropbox\\Gabriel\\Faculdade\\5° Semestre\\Gradify\\Gradify.csproj",
+        "projectPath": "C:\\Projetos\\GitHub\\Gradify\\Gradify.csproj",
         "packagesPath": "C:\\Users\\gabmi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabmi\\Dropbox\\Gabriel\\Faculdade\\5° Semestre\\Gradify\\obj\\",
+        "outputPath": "C:\\Projetos\\GitHub\\Gradify\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
