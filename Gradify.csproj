@@ -7,10 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Services\Frequencias\**" />
+    <Compile Remove="Services\Turmas\**" />
     <Compile Remove="ViewModels\**" />
+    <Compile Remove="Views\Aluno\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="Services\Frequencias\**" />
+    <Content Remove="Services\Turmas\**" />
     <Content Remove="ViewModels\**" />
+    <Content Remove="Views\Aluno\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Services\Frequencias\**" />
+    <EmbeddedResource Remove="Services\Turmas\**" />
     <EmbeddedResource Remove="ViewModels\**" />
+    <EmbeddedResource Remove="Views\Aluno\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Services\Frequencias\**" />
+    <None Remove="Services\Turmas\**" />
     <None Remove="ViewModels\**" />
+    <None Remove="Views\Aluno\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,15 +1,28 @@
+using Gradify.Data;
+using Gradify.Services.Alunos;
+using Gradify.Services.Anotacoes;
+using Gradify.Services.Frequencias;
+using Gradify.Services.Turmas;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IAlunoInterface, AlunoService>();
+builder.Services.AddScoped<IAnotacaoInterface, AnotacaoService>();
+builder.Services.AddScoped<IFrequenciaInterface, FrequenciaService>();
+builder.Services.AddScoped<ITurmaInterface, TurmaService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure o pipeline HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -24,6 +37,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();
