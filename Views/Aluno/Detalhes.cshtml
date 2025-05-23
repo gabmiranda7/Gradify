@@ -1,0 +1,13 @@
+﻿@model Gradify.DTOs.AlunoDto
+@{
+    ViewData["Title"] = "Detalhes do Aluno";
+}
+
+<h2 class="text-light">Detalhes do Aluno</h2>
+
+<div class="text-light">
+    <p><strong>Nome:</strong> @Model.Nome</p>
+    <p><strong>Matrícula:</strong> @Model.Matricula</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Gradify.DTOs.AlunoDto>
+@{
+    ViewData["Title"] = "Lista de Alunos";
+}
+
+<h2 class="mb-3 text-light">Lista de Alunos</h2>
+
+<a class="btn btn-success mb-3" asp-action="Criar">Adicionar Aluno</a>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var aluno in Model)
+        {
+            <tr>
+                <td>@aluno.Nome</td>
+                <td>@aluno.Matricula</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-action="Editar" asp-route-id="@aluno.Id">Editar</a>
+                    <a class="btn btn-info btn-sm" asp-action="Detalhes" asp-route-id="@aluno.Id">Detalhes</a>
+                    <button class="btn btn-danger btn-sm" onclick="confirmarExclusao(@aluno.Id)">Excluir</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form id="formExcluir" method="post" asp-action="Excluir">
+    <input type="hidden" name="id" id="alunoIdExcluir" />
+</form>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmarExclusao(id) {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: "Você não poderá reverter isso!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sim, excluir!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('alunoIdExcluir').value = id;
+                    document.getElementById('formExcluir').submit();
+                }
+            });
+        }
+    </script>
+}

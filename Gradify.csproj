@@ -7,18 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
     <Compile Remove="ViewModels\**" />
-    <Compile Remove="Views\Aluno\**" />
-    <Content Remove="Migrations\**" />
     <Content Remove="ViewModels\**" />
-    <Content Remove="Views\Aluno\**" />
-    <EmbeddedResource Remove="Migrations\**" />
     <EmbeddedResource Remove="ViewModels\**" />
-    <EmbeddedResource Remove="Views\Aluno\**" />
-    <None Remove="Migrations\**" />
     <None Remove="ViewModels\**" />
-    <None Remove="Views\Aluno\**" />
   </ItemGroup>
 
   <ItemGroup>
