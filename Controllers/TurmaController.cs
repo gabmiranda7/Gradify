@@ -1,95 +1,99 @@
 ﻿using Gradify.DTOs;
-using Gradify.Services.Turmas;
+using Gradify.Services.Turma;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Gradify.Controllers
 {
     public class TurmaController : Controller
     {
-        private readonly ITurmaInterface _turmaInterface;
+        private readonly ITurmaInterface _turmaService;
 
-        public TurmaController(ITurmaInterface turmaInterface)
+        public TurmaController(ITurmaInterface turmaService)
         {
-            _turmaInterface = turmaInterface;
+            _turmaService = turmaService;
         }
 
+        [Authorize(Roles = "Aluno, Administrador, Professor")]
         public async Task<IActionResult> Index()
         {
-            var turmas = await _turmaInterface.GetTurmas();
+            var turmas = await _turmaService.GetTurmas();
             return View(turmas);
         }
 
+        [Authorize(Roles = "Administrador, Professor")]
         public IActionResult Criar()
         {
-            return View();
+            var dto = new TurmaDto();
+            return View(dto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Criar(TurmaDto turmaDto)
+        [Authorize(Roles = "Administrador, Professor")]
+        public async Task<IActionResult> Criar(TurmaDto dto)
         {
-            if (!ModelState.IsValid) return View(turmaDto);
+            if (!ModelState.IsValid)
+                return View(dto);
 
-            try
-            {
-                await _turmaInterface.Criar(turmaDto);
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", $"Erro ao criar turma: {ex.Message}");
-                return View(turmaDto);
-            }
+            await _turmaService.Criar(dto);
+            TempData["Sucesso"] = "Turma criada com sucesso.";
+            return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Administrador, Professor")]
         public async Task<IActionResult> Editar(int id)
         {
-            var turma = await _turmaInterface.ObterPorId(id);
-            if (turma == null) return NotFound();
+            var turma = await _turmaService.ObterPorId(id);
+            if (turma == null)
+                return NotFound();
+
+            ViewBag.TurmaId = id;
             return View(turma);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar(int id, TurmaDto turmaDto)
+        [Authorize(Roles = "Administrador, Professor")]
+        public async Task<IActionResult> Editar(int id, TurmaDto dto)
         {
-            if (!ModelState.IsValid) return View(turmaDto);
+            if (!ModelState.IsValid)
+                return View(dto);
 
-            try
-            {
-                var atualizado = await _turmaInterface.Editar(id, turmaDto);
-                if (atualizado == null) return NotFound();
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", $"Erro ao editar turma: {ex.Message}");
-                return View(turmaDto);
-            }
+            var turma = await _turmaService.Editar(id, dto);
+            if (turma == null)
+                return NotFound();
+
+            TempData["Sucesso"] = "Turma editada com sucesso.";
+            return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Aluno, Administrador, Professor")]
         public async Task<IActionResult> Detalhes(int id)
         {
-            var turma = await _turmaInterface.ObterPorId(id);
-            if (turma == null) return NotFound();
+            var turma = await _turmaService.ObterPorId(id);
+            if (turma == null)
+                return NotFound();
+
             return View(turma);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Excluir(int id)
+        [Authorize(Roles = "Administrador, Professor")]
+        public async Task<IActionResult> ExcluirConfirmado(int id)
         {
-            try
+            var sucesso = await _turmaService.Excluir(id);
+            if (sucesso)
             {
-                var sucesso = await _turmaInterface.Excluir(id);
-                if (!sucesso) return NotFound();
-                return RedirectToAction(nameof(Index));
+                TempData["Sucesso"] = "Turma excluída com sucesso.";
             }
-            catch (Exception ex)
+            else
             {
-                ModelState.AddModelError("", $"Erro ao excluir turma: {ex.Message}");
-                return RedirectToAction(nameof(Index));
+                TempData["Erro"] = "Erro ao excluir a turma.";
             }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

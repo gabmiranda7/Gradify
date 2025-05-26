@@ -1,24 +1,49 @@
 ﻿using Gradify.DTOs;
+using Gradify.Models;
 using Gradify.Services.Alunos;
+using Gradify.Services.Frequencia;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gradify.Controllers
 {
     public class AlunoController : Controller
     {
-        private readonly IAlunoInterface _alunoInterface;
+        private readonly IAlunoInterface _alunoService;
+        private readonly IFrequenciaInterface _frequenciaService;
 
-        public AlunoController(IAlunoInterface alunoService)
+        public AlunoController(IAlunoInterface alunoService, IFrequenciaInterface frequenciaService)
         {
-            _alunoInterface = alunoService;
+            _alunoService = alunoService;
+            _frequenciaService = frequenciaService;
         }
 
+        [Authorize(Roles = "Aluno, Administrador, Professor")]
         public async Task<IActionResult> Index()
         {
-            var alunos = await _alunoInterface.GetAlunos();
+            var alunos = await _alunoService.GetAlunos();
             return View(alunos);
         }
 
+        public async Task<IActionResult> Detalhes(int id)
+        {
+            var aluno = await _alunoService.ObterPorId(id);
+
+            if (aluno == null)
+            {
+                return NotFound();
+            }
+
+            var frequencias =  _frequenciaService.BuscarFrequenciasPorAluno(id);
+
+            aluno.Frequencias = frequencias;
+
+            return View(aluno);
+        }
+
+        [Authorize(Roles = "Administrador, Professor")]
         public IActionResult Criar()
         {
             return View();
@@ -26,72 +51,89 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador, Professor")]
         public async Task<IActionResult> Criar(AlunoDto alunoDto)
         {
-            if (!ModelState.IsValid) return View(alunoDto);
-
-            try
+            if (ModelState.IsValid)
             {
-                await _alunoInterface.Criar(alunoDto);
-                return RedirectToAction(nameof(Index));
+                var alunoCriado = await _alunoService.Criar(alunoDto);
+                if (alunoCriado != null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", $"Erro ao criar aluno: {ex.Message}");
-                return View(alunoDto);
-            }
+            return View(alunoDto);
         }
 
+        [Authorize(Roles = "Administrador, Professor")]
         public async Task<IActionResult> Editar(int id)
         {
-            var aluno = await _alunoInterface.ObterPorId(id);
-            if (aluno == null) return NotFound();
-            return View(aluno);
+            var aluno = await _alunoService.ObterPorId(id);
+            if (aluno == null)
+            {
+                return NotFound();
+            }
+
+            var alunoDto = new AlunoDto
+            {
+                Id = aluno.Id,
+                Nome = aluno.Nome,
+                Matricula = aluno.Matricula
+            };
+
+            return View(alunoDto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador, Professor")]
         public async Task<IActionResult> Editar(int id, AlunoDto alunoDto)
         {
-            if (!ModelState.IsValid) return View(alunoDto);
-
-            try
+            if (ModelState.IsValid)
             {
-                var atualizado = await _alunoInterface.Editar(id, alunoDto);
-                if (atualizado == null) return NotFound();
-
+                var aluno = await _alunoService.Editar(id, alunoDto);
+                if (aluno == null)
+                {
+                    return NotFound();
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", $"Erro ao editar aluno: {ex.Message}");
-                return View(alunoDto);
-            }
+            return View(alunoDto);
         }
 
-        public async Task<IActionResult> Detalhes(int id)
-        {
-            var aluno = await _alunoInterface.ObterPorId(id);
-            if (aluno == null) return NotFound();
-            return View(aluno);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador, Professor")]
         public async Task<IActionResult> Excluir(int id)
         {
-            try
+            var aluno = await _alunoService.ObterPorId(id);
+            if (aluno == null)
             {
-                var sucesso = await _alunoInterface.Excluir(id);
-                if (!sucesso) return NotFound();
+                return NotFound();
+            }
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
+            var sucesso = await _alunoService.Excluir(id);
+            if (sucesso)
             {
-                ModelState.AddModelError("", $"Erro ao excluir aluno: {ex.Message}");
+                TempData["Sucesso"] = "Aluno excluído com sucesso!";
+            }
+            else
+            {
+                TempData["Erro"] = "Erro ao excluir o aluno.";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost, ActionName("Excluir")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador, Professor")]
+        public async Task<IActionResult> ExcluirConfirmado(int id)
+        {
+            var sucesso = await _alunoService.Excluir(id);
+            if (sucesso)
+            {
                 return RedirectToAction(nameof(Index));
             }
+            return NotFound();
         }
     }
 }

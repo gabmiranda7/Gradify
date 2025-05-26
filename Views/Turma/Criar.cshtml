@@ -1,0 +1,38 @@
+﻿@model Gradify.DTOs.TurmaDto
+
+@{
+    ViewData["Title"] = "Criar Nova Turma";
+}
+
+<h2><i class="fas fa-chalkboard-teacher"></i> @ViewData["Title"]</h2>
+
+<form asp-action="Criar" method="post" class="mt-3">
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label">Nome da Turma</label>
+        <input asp-for="Nome" class="form-control" required />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DataInicio" class="form-label">Data de Início</label>
+        <input asp-for="DataInicio" type="date" class="form-control" required />
+        <span asp-validation-for="DataInicio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DataFim" class="form-label">Data de Fim</label>
+        <input asp-for="DataFim" type="date" class="form-control" required />
+        <span asp-validation-for="DataFim" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save"></i> Criar
+    </button>
+    <a href="@Url.Action("Index", "Turma")" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

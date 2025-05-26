@@ -44,12 +44,132 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projetos/GitHub/Gradify/Views/Anotacao/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Anotacao/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cRGV0YWxoZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Anotacao/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Anotacao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5vdGFjYW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Aula/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVsYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Aula/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVsYVxEZXRhbGhlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Aula/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVsYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Aula/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVsYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Conta/AcessoNegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFcQWNlc3NvTmVnYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Conta/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Conta/MudarSenha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFcTXVkYXJTZW5oYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Conta/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFcUmVnaXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Conta/VerificarEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFcVmVyaWZpY2FyRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Curso/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Curso/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cRGV0YWxoZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Curso/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Curso/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Frequencia/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Frequencia/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxEZXRhbGhlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Frequencia/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Frequencia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlcXVlbmNpYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projetos/GitHub/Gradify/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projetos/GitHub/Gradify/Views/Professor/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXENyaWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Professor/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXERldGFsaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Professor/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Professor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzc29yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Shared/_AccountLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY2NvdW50TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projetos/GitHub/Gradify/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Turma/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Turma/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcRGV0YWxoZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Turma/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/GitHub/Gradify/Views/Turma/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/GitHub/Gradify/Views/_ViewImports.cshtml]

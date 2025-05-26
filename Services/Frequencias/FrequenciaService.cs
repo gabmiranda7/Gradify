@@ -3,7 +3,7 @@ using Gradify.DTOs;
 using Gradify.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gradify.Services.Frequencias
+namespace Gradify.Services.Frequencia
 {
     public class FrequenciaService : IFrequenciaInterface
     {
@@ -14,104 +14,124 @@ namespace Gradify.Services.Frequencias
             _context = context;
         }
 
-        public async Task<IEnumerable<FrequenciaDto>> GetFrequencias()
+        public FrequenciaDto Criar(FrequenciaDto dto)
         {
-            try
-            {
-                return await _context.Frequencias
-                    .Select(f => new FrequenciaDto
-                    {
-                        Id = f.Id,
-                        DataRegistro = f.DataRegistro,
-                        AlunoId = f.AlunoId,
-                        TurmaId = f.TurmaId
-                    }).ToListAsync();
-            }
-            catch
-            {
-                return new List<FrequenciaDto>();
-            }
-        }
-
-        public async Task<FrequenciaDto?> ObterPorId(int id)
-        {
-            try
-            {
-                var f = await _context.Frequencias.FindAsync(id);
-                if (f == null) return null;
-
-                return new FrequenciaDto
-                {
-                    Id = f.Id,
-                    DataRegistro = f.DataRegistro,
-                    AlunoId = f.AlunoId,
-                    TurmaId = f.TurmaId
-                };
-            }
-            catch
-            {
+            var turma = _context.Turmas.Find(dto.TurmaId);
+            if (turma == null)
                 return null;
-            }
-        }
 
-        public async Task<FrequenciaDto> Criar(FrequenciaDto dto)
-        {
-            var model = new Frequencia
+            var frequencia = new Models.Frequencia
             {
-                DataRegistro = dto.DataRegistro,
                 AlunoId = dto.AlunoId,
-                TurmaId = dto.TurmaId
+                TurmaId = dto.TurmaId,
+                Data = DateTime.Now
             };
 
-            try
-            {
-                _context.Frequencias.Add(model);
-                await _context.SaveChangesAsync();
+            _context.Frequencias.Add(frequencia);
+            _context.SaveChanges();
 
-                dto.Id = model.Id;
-                return dto;
-            }
-            catch
+            var aluno = _context.Alunos.Find(dto.AlunoId);
+
+            return new FrequenciaDto
             {
-                return dto;
-            }
+                Id = frequencia.Id,
+                AlunoId = frequencia.AlunoId,
+                TurmaId = frequencia.TurmaId,
+                Data = frequencia.Data,
+                AlunoNome = aluno?.Nome,
+                TurmaNome = turma?.Nome
+            };
         }
 
-        public async Task<FrequenciaDto?> Editar(int id, FrequenciaDto dto)
+        public IEnumerable<FrequenciaDto> GetFrequencias()
         {
-            try
-            {
-                var model = await _context.Frequencias.FindAsync(id);
-                if (model == null) return null;
-
-                model.DataRegistro = dto.DataRegistro;
-                model.AlunoId = dto.AlunoId;
-                model.TurmaId = dto.TurmaId;
-
-                await _context.SaveChangesAsync();
-                return dto;
-            }
-            catch
-            {
-                return null;
-            }
+            return _context.Frequencias
+                .Include(f => f.Aluno)
+                .Include(f => f.Turma)
+                .Select(f => new FrequenciaDto
+                {
+                    Id = f.Id,
+                    AlunoId = f.AlunoId,
+                    TurmaId = f.TurmaId,
+                    Data = f.Data,
+                    AlunoNome = f.Aluno.Nome,
+                    TurmaNome = f.Turma.Nome
+                })
+                .ToList();
         }
 
-        public async Task<bool> Excluir(int id)
+        public FrequenciaDto ObterPorId(int id)
         {
-            try
-            {
-                var model = await _context.Frequencias.FindAsync(id);
-                if (model == null) return false;
+            var frequencia = _context.Frequencias
+                .Include(f => f.Aluno)
+                .Include(f => f.Turma)
+                .FirstOrDefault(f => f.Id == id);
 
-                _context.Frequencias.Remove(model);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch
+            if (frequencia == null) return null;
+
+            return new FrequenciaDto
             {
-                return false;
-            }
+                Id = frequencia.Id,
+                AlunoId = frequencia.AlunoId,
+                TurmaId = frequencia.TurmaId,
+                Data = frequencia.Data,
+                AlunoNome = frequencia.Aluno?.Nome,
+                TurmaNome = frequencia.Turma?.Nome
+            };
+        }
+
+        public bool Excluir(int id)
+        {
+            var frequencia = _context.Frequencias.Find(id);
+            if (frequencia == null) return false;
+
+            _context.Frequencias.Remove(frequencia);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public FrequenciaDto Editar(int id, FrequenciaDto dto)
+        {
+            var frequencia = _context.Frequencias.Find(id);
+            if (frequencia == null) return null;
+
+            frequencia.AlunoId = dto.AlunoId;
+            frequencia.TurmaId = dto.TurmaId;
+            frequencia.Data = DateTime.Now;
+
+            _context.Frequencias.Update(frequencia);
+            _context.SaveChanges();
+
+            var aluno = _context.Alunos.Find(frequencia.AlunoId);
+            var turma = _context.Turmas.Find(frequencia.TurmaId);
+
+            return new FrequenciaDto
+            {
+                Id = frequencia.Id,
+                AlunoId = frequencia.AlunoId,
+                TurmaId = frequencia.TurmaId,
+                Data = frequencia.Data,
+                AlunoNome = aluno?.Nome,
+                TurmaNome = turma?.Nome
+            };
+        }
+
+        public List<FrequenciaDto> BuscarFrequenciasPorAluno(int alunoId)
+        {
+            return _context.Frequencias
+                .Include(f => f.Aluno)
+                .Include(f => f.Turma)
+                .Where(f => f.AlunoId == alunoId)
+                .Select(f => new FrequenciaDto
+                {
+                    Id = f.Id,
+                    AlunoId = f.AlunoId,
+                    TurmaId = f.TurmaId,
+                    Data = f.Data,
+                    AlunoNome = f.Aluno.Nome,
+                    TurmaNome = f.Turma.Nome
+                })
+                .ToList();
         }
     }
 }

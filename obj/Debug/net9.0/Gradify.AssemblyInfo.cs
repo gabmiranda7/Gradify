@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gradify")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+159eb00599aea200a1750a3186ba531470f54bfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4aaffb120f5dac69461db8841fee72622e8cd77")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gradify")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gradify")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

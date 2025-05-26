@@ -1,13 +1,14 @@
 ﻿using Gradify.DTOs;
 
-namespace Gradify.Services.Frequencias
+namespace Gradify.Services.Frequencia
 {
     public interface IFrequenciaInterface
     {
-        Task<IEnumerable<FrequenciaDto>> GetFrequencias();
-        Task<FrequenciaDto?> ObterPorId(int id);
-        Task<FrequenciaDto> Criar(FrequenciaDto dto);
-        Task<FrequenciaDto?> Editar(int id, FrequenciaDto dto);
-        Task<bool> Excluir(int id);
+        FrequenciaDto Criar(FrequenciaDto dto);
+        FrequenciaDto Editar(int id, FrequenciaDto dto);
+        IEnumerable<FrequenciaDto> GetFrequencias();
+        FrequenciaDto ObterPorId(int id);
+        bool Excluir(int id);
+        List<FrequenciaDto> BuscarFrequenciasPorAluno(int alunoId);
     }
 }

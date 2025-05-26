@@ -1,58 +1,84 @@
 ﻿@model IEnumerable<Gradify.DTOs.AlunoDto>
+
 @{
-    ViewData["Title"] = "Lista de Alunos";
+    ViewData["Title"] = "Alunos";
 }
 
-<h2 class="mb-3 text-light">Lista de Alunos</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<a class="btn btn-success mb-3" asp-action="Criar">Adicionar Aluno</a>
+<h1 class="mb-4 text-primary"><i class="fas fa-users"></i> @ViewData["Title"]</h1>
 
-<table class="table table-dark table-striped">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Matrícula</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var aluno in Model)
-        {
-            <tr>
-                <td>@aluno.Nome</td>
-                <td>@aluno.Matricula</td>
-                <td>
-                    <a class="btn btn-primary btn-sm" asp-action="Editar" asp-route-id="@aluno.Id">Editar</a>
-                    <a class="btn btn-info btn-sm" asp-action="Detalhes" asp-route-id="@aluno.Id">Detalhes</a>
-                    <button class="btn btn-danger btn-sm" onclick="confirmarExclusao(@aluno.Id)">Excluir</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<p>
+    <a href="@Url.Action("Criar")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Adicionar Aluno
+    </a>
+</p>
 
-<form id="formExcluir" method="post" asp-action="Excluir">
-    <input type="hidden" name="id" id="alunoIdExcluir" />
-</form>
+<div class="row">
+    @foreach (var aluno in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded">
+                <div class="card-body">
+                    <h5 class="card-title">@aluno.Nome</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Matrícula: @aluno.Matricula</h6>
+                    <div class="text-center">
+                        <a href="@Url.Action("Detalhes", new { id = aluno.Id })" class="btn btn-info btn-sm">
+                            <i class="fas fa-eye"></i> Detalhes
+                        </a>
+                        <a href="@Url.Action("Editar", new { id = aluno.Id })" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="javascript:void(0);" onclick="confirmarExclusao(@aluno.Id)" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Excluir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function confirmarExclusao(id) {
             Swal.fire({
-                title: 'Tem certeza?',
-                text: "Você não poderá reverter isso!",
+                title: 'Você tem certeza?',
+                text: "Esta ação não pode ser desfeita!",
                 icon: 'warning',
-                showCancelButton: true,
                 confirmButtonColor: '#d33',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Sim, excluir!'
+                confirmButtonText: 'Sim, excluir!',
+                background: '#2c2f33',
+                color: '#ffffff'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('alunoIdExcluir').value = id;
-                    document.getElementById('formExcluir').submit();
+                    window.location.href = '@Url.Action("Excluir", "Aluno")/' + id;
                 }
             });
         }
+    </script>
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
     </script>
 }

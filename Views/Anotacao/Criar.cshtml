@@ -1,0 +1,46 @@
+﻿@model Gradify.DTOs.AnotacaoDto
+
+@{
+    ViewData["Title"] = "Criar Anotação";
+}
+
+<div class="container mt-5">
+    <div class="card shadow rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h2 class="mb-0">
+                <i class="fas fa-sticky-note"></i> Criar Anotação
+            </h2>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Criar">
+                <div class="mb-3">
+                    <label asp-for="Texto" class="form-label fw-bold">
+                        <i class="fas fa-comment"></i> Comentário
+                    </label>
+                    <input asp-for="Texto" class="form-control" placeholder="Digite a anotação" />
+                    <span asp-validation-for="Texto" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="TurmaId" class="form-label fw-bold">
+                        <i class="fas fa-book"></i> Matéria
+                    </label>
+                    <select asp-for="TurmaId" class="form-select" asp-items="ViewBag.Turmas">
+                        <option value="">Selecione uma matéria</option>
+                    </select>
+                    <span asp-validation-for="TurmaId" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

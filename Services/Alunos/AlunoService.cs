@@ -25,7 +25,6 @@ namespace Gradify.Services.Alunos
                         Nome = a.Nome,
                         Matricula = a.Matricula,
                         Email = a.Email,
-                        Senha = a.Senha
                     })
                     .ToListAsync();
             }
@@ -48,7 +47,6 @@ namespace Gradify.Services.Alunos
                     Nome = aluno.Nome,
                     Matricula = aluno.Matricula,
                     Email = aluno.Email,
-                    Senha = aluno.Senha
                 };
             }
             catch (Exception ex)
@@ -66,7 +64,6 @@ namespace Gradify.Services.Alunos
                     Nome = alunoDto.Nome,
                     Matricula = alunoDto.Matricula,
                     Email = alunoDto.Email,
-                    Senha = alunoDto.Senha
                 };
 
                 _context.Alunos.Add(aluno);
@@ -91,7 +88,6 @@ namespace Gradify.Services.Alunos
                 aluno.Nome = alunoDto.Nome;
                 aluno.Matricula = alunoDto.Matricula;
                 aluno.Email = alunoDto.Email;
-                aluno.Senha = alunoDto.Senha;
 
                 await _context.SaveChangesAsync();
                 return alunoDto;

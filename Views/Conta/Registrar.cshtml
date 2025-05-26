@@ -1,0 +1,62 @@
+﻿@model Gradify.ViewModels.RegistrarViewModel
+
+<div class="account-container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="account-box shadow rounded p-4 bg-white" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4 fw-bold text-success">Registrar</h2>
+
+        <form asp-action="Registrar" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Nome" class="form-label fw-semibold">Nome</label>
+                <input asp-for="Nome" class="form-control" autocomplete="name" />
+                <span asp-validation-for="Nome" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold">Email</label>
+                <input asp-for="Email" class="form-control" autocomplete="email" type="email" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Senha" class="form-label fw-semibold">Senha</label>
+                <input asp-for="Senha" type="password" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="Senha" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmarSenha" class="form-label fw-semibold">Confirmar Senha</label>
+                <input asp-for="ConfirmarSenha" type="password" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="ConfirmarSenha" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label fw-semibold">Tipo de Usuário</label>
+                <select asp-for="Role" class="form-select">
+                    <option value="">Selecione o tipo de usuário</option>
+                    <option value="Aluno">Aluno</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Professor">Professor</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 py-2">
+                <i class="fas fa-user-plus me-2"></i> Registrar
+            </button>
+
+            <div class="text-center mt-3">
+                <p class="mb-1">
+                    Já possui uma conta?
+                    <a asp-controller="Conta" asp-action="Login" class="text-decoration-none">Fazer Login</a>
+                </p>
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none small">← Voltar para o início</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

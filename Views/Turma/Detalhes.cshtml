@@ -1,0 +1,28 @@
+﻿@model Gradify.DTOs.TurmaDto
+
+@{
+    ViewData["Title"] = "Detalhes da Turma";
+}
+
+<h1 class="mb-4 text-center">
+    <i class="fas fa-chalkboard"></i> @ViewData["Title"]
+</h1>
+
+<div class="card p-4 shadow rounded-4">
+    <dl class="row">
+        <dt class="col-sm-3">Nome</dt>
+        <dd class="col-sm-9">@Model.Nome</dd>
+
+        <dt class="col-sm-3">Data de Início</dt>
+        <dd class="col-sm-9">@Model.DataInicio.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">Data de Fim</dt>
+        <dd class="col-sm-9">@Model.DataFim.ToString("dd/MM/yyyy")</dd>
+    </dl>
+</div>
+
+<div class="mt-4 text-center">
+    <a href="@Url.Action("Index", "Turma")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+</div>
