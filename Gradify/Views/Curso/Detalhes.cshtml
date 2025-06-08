@@ -1,0 +1,33 @@
+﻿@model Gradify.DTOs.CursoDTO
+
+@{
+    ViewData["Title"] = "Detalhes do Curso";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.Nome</h4>
+        <p><strong>Descrição:</strong> @Model.Descricao</p>
+        <p><strong>Professor:</strong> @Model.ProfessorNome</p>
+        <p>
+            <strong>Turmas:</strong>
+            @if (Model.TurmaNomes != null && Model.TurmaNomes.Any())
+            {
+                <ul>
+                    @foreach (var turma in Model.TurmaNomes)
+                    {
+                        <li>@turma</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Sem turmas associadas</span>
+            }
+        </p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

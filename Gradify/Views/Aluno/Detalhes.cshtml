@@ -1,0 +1,68 @@
+﻿@model Gradify.DTOs.AlunoDTO
+
+@{
+    ViewData["Title"] = "Detalhes do Aluno";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<h1 class="mb-4 text-primary"><i class="fas fa-user-graduate"></i> @ViewData["Title"]</h1>
+
+<div class="card dark-mode-card shadow-lg p-4 mb-4 rounded" style="max-width: 600px;">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-id-badge fa-2x text-secondary me-3"></i>
+        <div>
+            <h5 class="mb-0">Nome</h5>
+            <span class="text-strong-light fs-5">@Model.Nome</span>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-hashtag fa-2x text-secondary me-3"></i>
+        <div>
+            <h5 class="mb-0">Matrícula</h5>
+            <span class="text-strong-light fs-5">@Model.Matricula</span>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex gap-2">
+    <a href="@Url.Action("Index")" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+
+    <a href="@Url.Action("Editar", new { id = Model.Id })" class="btn btn-warning">
+        <i class="fas fa-edit"></i> Editar
+    </a>
+</div>
+
+<h3 class="mt-4">Frequências Registradas</h3>
+
+@if (Model.Frequencias != null && Model.Frequencias.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Turma</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var freq in Model.Frequencias)
+            {
+                <tr>
+                    <td>@freq.DataFrequencia.ToShortDateString()</td>
+                    <td>@freq.NomeTurma</td>
+                    <td>
+                        <a asp-controller="Frequencia" asp-action="Detalhes" asp-route-id="@freq.Id" class="btn btn-sm btn-outline-info">Ver</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Este aluno ainda não registrou nenhuma frequência.</p>
+}

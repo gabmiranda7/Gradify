@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Gradify.DTOs.ProfessorDTO>
+@{
+    ViewData["Title"] = "Professores";
+}
+
+<h1 class="mb-4 text-primary"><i class="fas fa-chalkboard-teacher"></i> @ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Criar", "Professor")" class="btn btn-success">
+        <i class="fas fa-plus"></i> Novo Professor
+    </a>
+</p>
+
+<div class="row">
+    @foreach (var professor in Model.OrderBy(p => p.Nome))
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded dark-mode-card">
+                <div class="card-body">
+                    <h5 class="card-title">@professor.Nome</h5>
+                    <p class="card-text"><i class="fas fa-envelope"></i> @professor.Email</p>
+                    <div class="text-center mt-3">
+                        <a href="@Url.Action("Detalhes", "Professor", new { id = professor.Id })" class="btn btn-info btn-sm">
+                            <i class="fas fa-eye"></i> Detalhes
+                        </a>
+                        <a href="@Url.Action("Editar", "Professor", new { id = professor.Id })" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="javascript:void(0);" onclick="confirmarExclusao(@professor.Id)" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Excluir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmarExclusao(id) {
+            Swal.fire({
+                title: 'Deseja excluir?',
+                text: 'Essa ação não poderá ser desfeita!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar',
+                background: '#2c2f33',
+                color: '#ffffff'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/Professor/Excluir/' + id;
+                }
+            });
+        }
+    </script>
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["Sucesso"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: '@TempData["Erro"]',
+            confirmButtonColor: '#d33'
+        });
+    </script>
+}

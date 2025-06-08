@@ -1,0 +1,42 @@
+﻿@model Gradify.DTOs.ProfessorDTO
+@{
+    ViewData["Title"] = "Detalhes do Professor";
+}
+
+<h1 class="mb-4 text-center text-info">
+    <i class="fas fa-info-circle"></i> @ViewData["Title"]
+</h1>
+
+<div class="card p-4 shadow rounded-4 dark-mode-card">
+    <p><i class="fas fa-user"></i> <strong>Nome:</strong> @Model.Nome</p>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> @Model.Email</p>
+
+    @if (Model.Cursos.Any())
+    {
+        <p><i class="fas fa-book"></i> <strong>Cursos:</strong></p>
+        <div class="row">
+            @foreach (var curso in Model.Cursos.OrderBy(c => c))
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm rounded h-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <i class="fas fa-graduation-cap text-info me-2"></i> @curso
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p><i class="fas fa-book"></i> <strong>Cursos:</strong> Nenhum curso vinculado.</p>
+    }
+</div>
+
+<div class="mt-4 text-center">
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+</div>

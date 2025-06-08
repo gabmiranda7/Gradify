@@ -1,0 +1,35 @@
+﻿@model Gradify.DTOs.AlunoDTO
+
+@{
+    ViewData["Title"] = "Criar Aluno";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<h1 class="mb-4 text-primary"><i class="fas fa-user-plus"></i> @ViewData["Title"]</h1>
+
+<div class="card shadow-lg p-4 mb-4 rounded" style="max-width: 600px;">
+    <form asp-action="Criar" method="post">
+        <div class="form-group mb-3">
+            <label asp-for="Nome" class="form-label fw-bold"><i class="fas fa-user"></i> Nome</label>
+            <input asp-for="Nome" class="form-control" placeholder="Digite o nome do aluno" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Matricula" class="form-label fw-bold"><i class="fas fa-id-card"></i> Matrícula</label>
+            <input asp-for="Matricula" class="form-control" placeholder="Digite a matrícula" />
+            <span asp-validation-for="Matricula" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a href="@Url.Action("Index")" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-check"></i> Criar
+            </button>
+        </div>
+    </form>
+</div>

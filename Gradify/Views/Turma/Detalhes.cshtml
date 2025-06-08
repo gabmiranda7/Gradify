@@ -1,0 +1,22 @@
+﻿@model Gradify.DTOs.TurmaDTO
+@{
+    ViewData["Title"] = "Detalhes da Turma";
+}
+
+<h2>Detalhes da Turma</h2>
+
+<div class="mb-3">
+    <strong>Nome:</strong> @Model.Nome
+</div>
+<div class="mb-3">
+    <strong>Data de Início:</strong> @Model.DataInicio.ToShortDateString()
+</div>
+<div class="mb-3">
+    <strong>Data de Fim:</strong> @Model.DataFim.ToShortDateString()
+</div>
+<div class="mb-3">
+    <strong>Professor:</strong> @Model.NomeProfessor
+</div>
+
+<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

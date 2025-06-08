@@ -1,0 +1,29 @@
+﻿@model Gradify.DTOs.FrequenciaDTO
+
+@{
+    ViewData["Title"] = "Detalhes da Frequência";
+}
+
+<h2 class="text mb-4">Detalhes da Frequência</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">📅 Data</dt>
+            <dd class="col-sm-9">@Model.DataFrequencia.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">👨‍🎓 Aluno</dt>
+            <dd class="col-sm-9">@Model.NomeAluno</dd>
+
+            <dt class="col-sm-3">🏫 Turma</dt>
+            <dd class="col-sm-9">@Model.NomeTurma</dd>
+        </dl>
+    </div>
+</div>
+
+<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+    <i class="fas fa-edit"></i> Editar
+</a>
+<a asp-action="Index" class="btn btn-secondary">
+    <i class="fas fa-arrow-left"></i> Voltar
+</a>

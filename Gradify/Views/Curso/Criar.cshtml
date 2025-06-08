@@ -1,0 +1,45 @@
+﻿@model Gradify.DTOs.CursoDTO
+
+@{
+    ViewData["Title"] = "Criar Curso";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Criar" method="post">
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Descricao"></label>
+        <textarea asp-for="Descricao" class="form-control"></textarea>
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProfessorId"></label>
+        <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.Professores">
+            <option value="">Selecione um professor</option>
+        </select>
+        <span asp-validation-for="ProfessorId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TurmaNomes"></label>
+        <select asp-for="TurmaNomes" class="form-control" asp-items="ViewBag.Turmas">
+            <option value="">Selecione uma turma</option>
+        </select>
+        <span asp-validation-for="TurmaNomes" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Criar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
