@@ -35,43 +35,49 @@ public class AlunoTests
     }
 
     [Fact]
-    public async Task CriarCincoAlunos()
+    public async Task Criar()
     {
         using var context = GetSqlServerDbContext();
+
         var uniqueSuffix = GetUniqueSuffix();
 
-        for (int i = 1; i <= 5; i++)
+        var usuario = new Usuario
         {
-            var usuario = new Usuario
-            {
-                UserName = $"aluno{i}_{uniqueSuffix}",
-                Email = $"aluno{i}_{uniqueSuffix}@example.com",
-                NormalizedUserName = $"ALUNO{i}_{uniqueSuffix}".ToUpper(),
-                NormalizedEmail = $"ALUNO{i}_{uniqueSuffix}@EXAMPLE.COM".ToUpper(),
-                EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
+            UserName = $"aluno_{uniqueSuffix}",
+            Email = $"aluno_{uniqueSuffix}@example.com",
+            NormalizedUserName = $"ALUNO_{uniqueSuffix}".ToUpper(),
+            NormalizedEmail = $"ALUNO_{uniqueSuffix}@EXAMPLE.COM".ToUpper(),
+            EmailConfirmed = true,
+            SecurityStamp = Guid.NewGuid().ToString()
+        };
 
-            context.Users.Add(usuario);
-            await context.SaveChangesAsync();
+        context.Users.Add(usuario);
+        await context.SaveChangesAsync();
 
-            var aluno = new Aluno
-            {
-                Nome = $"Aluno Teste {i}",
-                Matricula = $"12345{i}",
-                UsuarioId = usuario.Id
-            };
+        var aluno = new Aluno
+        {
+            Nome = "Aluno Teste",
+            Matricula = "123456",
+            UsuarioId = usuario.Id
+        };
 
-            context.Alunos.Add(aluno);
-            await context.SaveChangesAsync();
-        }
+        context.Alunos.Add(aluno);
+        await context.SaveChangesAsync();
 
-        var totalAlunos = await context.Alunos.CountAsync();
-        Assert.True(totalAlunos >= 5, "Deveria existir pelo menos 5 alunos no banco.");
+        var alunoCarregado = await context.Alunos
+            .Include(a => a.Usuario)
+            .FirstOrDefaultAsync(a => a.Id == aluno.Id);
+
+        Assert.NotNull(alunoCarregado);
+        Assert.NotNull(alunoCarregado.Usuario);
+        Assert.Equal("Aluno Teste", alunoCarregado.Nome);
+        Assert.Equal(usuario.Email, alunoCarregado.Usuario.Email);
+
+        _output.WriteLine($"Aluno criado: {alunoCarregado.Nome}, Email: {alunoCarregado.Usuario.Email}");
     }
 
     [Fact]
-    public async Task EditarAlunos()
+    public async Task Editar()
     {
         using var context = GetSqlServerDbContext();
         var service = new AlunoService(context);
@@ -136,7 +142,7 @@ public class AlunoTests
     }
 
     [Fact]
-    public async Task ListarAlunos()
+    public async Task ListarTodos()
     {
         using var context = GetSqlServerDbContext();
         var service = new AlunoService(context);
@@ -162,7 +168,7 @@ public class AlunoTests
 
 
     [Fact]
-    public async Task ExcluirTodosAlunos()
+    public async Task ExcluirTodos()
     {
         using var context = GetSqlServerDbContext();
 
