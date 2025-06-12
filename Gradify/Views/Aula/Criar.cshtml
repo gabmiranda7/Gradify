@@ -1,0 +1,31 @@
+﻿@model Gradify.DTOs.AulaDTO
+
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Nova Aula" : "Editar Aula";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Criar" method="post">
+    <input type="hidden" asp-for="TurmaId" />
+
+    <div class="form-group">
+        <label asp-for="DataAula"></label>
+        <input asp-for="DataAula" type="date" class="form-control" />
+        <span asp-validation-for="DataAula" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tema"></label>
+        <input asp-for="Tema" class="form-control" />
+        <span asp-validation-for="Tema" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+    <a asp-action="Index" asp-route-turmaId="@Model.TurmaId" class="btn btn-secondary mt-3">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

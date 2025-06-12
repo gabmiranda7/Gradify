@@ -7,10 +7,15 @@
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
 
-        public int ProfessorId { get; set; }
-        public Professor Professor { get; set; } = null!;
+        public int CursoId { get; set; }
+        public Curso Curso { get; set; }
+
+        //public int ProfessorId { get; set; }
+        //public Professor Professor { get; set; } = null!;
 
         public ICollection<Aluno> Alunos { get; set; } = new List<Aluno>();
-        public ICollection<TurmaCurso> TurmasCursos { get; set; } = new List<TurmaCurso>();
+        public ICollection<Aula> Aulas { get; set; } = new List<Aula>();
+
+
     }
 }

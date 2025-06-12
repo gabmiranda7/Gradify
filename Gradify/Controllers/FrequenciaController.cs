@@ -23,9 +23,19 @@ namespace Gradify.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var frequencias = await _frequenciaService.GetFrequencias();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == userId);
+
+            var frequencias = await _context.Frequencias
+                .Include(f => f.Aluno)
+                .Include(f => f.Turma)
+                .Include(f => f.Aula)
+                .Where(f => f.AlunoId == aluno.Id) // Filtro opcional
+                .ToListAsync();
+
             return View(frequencias);
         }
+
 
         public IActionResult Criar()
         {

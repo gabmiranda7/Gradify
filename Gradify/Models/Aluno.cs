@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Gradify.Models
+﻿namespace Gradify.Models
 {
     public class Aluno
     {
@@ -14,6 +12,7 @@ namespace Gradify.Models
 
         public string UsuarioId { get; set; } = null!;
         public virtual Usuario Usuario { get; set; } = null!;
+
 
         public ICollection<Anotacao> Anotacoes { get; set; } = new List<Anotacao>();
         public ICollection<Frequencia> Frequencias { get; set; } = new List<Frequencia>();

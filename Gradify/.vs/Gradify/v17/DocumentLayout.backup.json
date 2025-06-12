@@ -1,9 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\",
+  "WorkspaceRootPath": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B9005B2-D65E-474E-B0DA-64043A7C7005}|..\\Tests\\Tests.csproj|c:\\projetos\\github\\gradify\\tests\\professor\\professortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\migrations\\20250612202553_removeprofessorfromcursoeturma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:migrations\\20250612202553_removeprofessorfromcursoeturma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\anotacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\anotacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\aula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\aula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\frequencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\frequencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify\\gradify\\models\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:models\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,24 +46,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProfessorTests.cs",
-              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Tests\\Professor\\ProfessorTests.cs",
-              "RelativeDocumentMoniker": "..\\Tests\\Professor\\ProfessorTests.cs",
-              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Tests\\Professor\\ProfessorTests.cs",
-              "RelativeToolTip": "..\\Tests\\Professor\\ProfessorTests.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAwwLYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T00:44:00.177Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250612202553_RemoveProfessorFromCursoETurma.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Migrations\\20250612202553_RemoveProfessorFromCursoETurma.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250612202553_RemoveProfessorFromCursoETurma.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Migrations\\20250612202553_RemoveProfessorFromCursoETurma.cs",
+              "RelativeToolTip": "Migrations\\20250612202553_RemoveProfessorFromCursoETurma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:25:53.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwDkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:15:16.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Turma.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Turma.cs",
+              "RelativeDocumentMoniker": "Models\\Turma.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Turma.cs",
+              "RelativeToolTip": "Models\\Turma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:11.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Professor.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Professor.cs",
+              "RelativeDocumentMoniker": "Models\\Professor.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Professor.cs",
+              "RelativeToolTip": "Models\\Professor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:10.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Frequencia.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Frequencia.cs",
+              "RelativeDocumentMoniker": "Models\\Frequencia.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Frequencia.cs",
+              "RelativeToolTip": "Models\\Frequencia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:10.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Curso.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Curso.cs",
+              "RelativeDocumentMoniker": "Models\\Curso.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Curso.cs",
+              "RelativeToolTip": "Models\\Curso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:09.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Aula.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Aula.cs",
+              "RelativeDocumentMoniker": "Models\\Aula.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Aula.cs",
+              "RelativeToolTip": "Models\\Aula.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:09.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Anotacao.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Anotacao.cs",
+              "RelativeDocumentMoniker": "Models\\Anotacao.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Anotacao.cs",
+              "RelativeToolTip": "Models\\Anotacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:08.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Aluno.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Aluno.cs",
+              "RelativeDocumentMoniker": "Models\\Aluno.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify\\Gradify\\Models\\Aluno.cs",
+              "RelativeToolTip": "Models\\Aluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T20:14:07.757Z"
             }
           ]
         }

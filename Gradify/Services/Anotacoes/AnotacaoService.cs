@@ -1,7 +1,6 @@
 ﻿using Gradify.Data;
 using Gradify.DTOs;
 using Gradify.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gradify.Services.Anotacoes
@@ -15,113 +14,42 @@ namespace Gradify.Services.Anotacoes
             _context = context;
         }
 
-        public async Task<List<AnotacaoDTO>> GetAnotacoes()
+        public async Task<AnotacaoDTO?> ObterPorAulaId(int aulaId)
         {
-            return await _context.Anotacoes
-                .Include(a => a.Aluno)
-                .Include(a => a.Curso)
-                .Select(a => new AnotacaoDTO
-                {
-                    Id = a.Id,
-                    Texto = a.Texto,
-                    DataCriacao = a.DataCriacao,
-                    DataModificacao = a.DataModificacao,
-                    AlunoId = a.AlunoId,
-                    CursoId = a.CursoId,
-                    AlunoNome = a.Aluno.Nome,
-                    CursoNome = a.Curso.Nome
-                }).ToListAsync();
-        }
+            var aula = await _context.Aulas.FirstOrDefaultAsync(a => a.Id == aulaId);
+            if (aula == null) return null;
 
-        public async Task<List<AnotacaoDTO>> GetAnotacoesPorAlunoId(int alunoId)
-        {
-            return await _context.Anotacoes
-                .Where(a => a.AlunoId == alunoId)
-                .Include(a => a.Curso)
-                .Include(a => a.Aluno)
-                .Select(a => new AnotacaoDTO
-                {
-                    Id = a.Id,
-                    Texto = a.Texto,
-                    DataCriacao = a.DataCriacao,
-                    DataModificacao = a.DataModificacao,
-                    AlunoId = a.AlunoId,
-                    AlunoNome = a.Aluno.Nome,
-                    CursoId = a.CursoId,
-                    CursoNome = a.Curso.Nome
-                }).ToListAsync();
-        }
-
-        public async Task<List<SelectListItem>> GetCursosSelectList()
-        {
-            return await _context.Cursos
-                .Select(c => new SelectListItem
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Nome
-                })
-                .ToListAsync();
-        }
-
-        public async Task<AnotacaoDTO?> ObterPorId(int id)
-        {
-            var anotacao = await _context.Anotacoes
-                .Include(a => a.Aluno)
-                .Include(a => a.Curso)
-                .FirstOrDefaultAsync(a => a.Id == id);
-
-            if (anotacao == null) return null;
+            var anotacao = await _context.Anotacoes.FirstOrDefaultAsync(a => a.AulaId == aulaId);
 
             return new AnotacaoDTO
             {
-                Id = anotacao.Id,
-                Texto = anotacao.Texto,
-                DataCriacao = anotacao.DataCriacao,
-                DataModificacao = anotacao.DataModificacao,
-                AlunoId = anotacao.AlunoId,
-                CursoId = anotacao.CursoId,
-                AlunoNome = anotacao.Aluno.Nome,
-                CursoNome = anotacao.Curso.Nome
+                AulaId = aula.Id,
+                Tema = aula.Tema,
+                DataAula = aula.DataAula,
+                Texto = anotacao?.Texto ?? string.Empty
             };
         }
 
-        public async Task Criar(AnotacaoDTO dto)
+        public async Task SalvarAnotacao(AnotacaoDTO dto)
         {
-            var anotacao = new Gradify.Models.Anotacao
+            var anotacao = await _context.Anotacoes.FirstOrDefaultAsync(a => a.AulaId == dto.AulaId);
+
+            if (anotacao == null)
             {
-                Texto = dto.Texto,
-                DataCriacao = dto.DataCriacao,
-                DataModificacao = dto.DataModificacao,
-                AlunoId = dto.AlunoId,
-                CursoId = dto.CursoId
-            };
-
-            _context.Anotacoes.Add(anotacao);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Editar(AnotacaoDTO dto)
-        {
-            var anotacao = await _context.Anotacoes.FindAsync(dto.Id);
-            if (anotacao == null) return;
-
-            anotacao.Texto = dto.Texto;
-            anotacao.DataCriacao = dto.DataCriacao;
-            anotacao.DataModificacao = dto.DataModificacao;
-            anotacao.AlunoId = dto.AlunoId;
-            anotacao.CursoId = dto.CursoId;
-
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Excluir(int id)
-        {
-            var anotacao = await _context.Anotacoes.FindAsync(id);
-            if (anotacao != null)
-            {
-                _context.Anotacoes.Remove(anotacao);
-                await _context.SaveChangesAsync();
+                anotacao = new Anotacao
+                {
+                    AulaId = dto.AulaId,
+                    Texto = dto.Texto
+                };
+                _context.Anotacoes.Add(anotacao);
             }
+            else
+            {
+                anotacao.Texto = dto.Texto;
+                _context.Anotacoes.Update(anotacao);
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,0 +1,70 @@
+## Ignore arquivos de build do Visual Studio
+[Bb]in/
+[Oo]bj/
+
+## Pastas do Visual Studio
+.vs/
+.vscode/
+
+## Arquivos de cache e temporários
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Arquivos de log
+*.log
+
+## Arquivos de pacotes NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+## Diretórios gerados por ferramentas de publish
+publish/
+out/
+
+## Arquivos do sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Arquivos de lock e dependências locais
+project.lock.json
+project.fragment.lock.json
+
+## Arquivos do Rider/ReSharper
+.idea/
+*.DotSettings.user
+
+## Arquivos de backup
+*.bak
+*.tmp
+
+## Arquivos do Windows
+$RECYCLE.BIN/
+
+## Configurações específicas do sistema
+*.dbmdl
+*.jfm
+*.cache
+*.pdb
+
+## Secrets locais
+secrets.json
+
+## Testes e resultados
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Logs do dotnet
+*.log
+
+## Git temporários
+*.orig
+
+## Arquivos gerados por ferramentas
+Generated_Code/

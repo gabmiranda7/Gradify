@@ -17,24 +17,16 @@ namespace Gradify.Data
         public DbSet<Frequencia> Frequencias { get; set; }
         public DbSet<Professor> Professores { get; set; }
         public DbSet<Turma> Turmas { get; set; }
-        public DbSet<TurmaCurso> TurmasCursos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<TurmaCurso>()
-                .HasKey(tc => new { tc.TurmaId, tc.CursoId });
-
-            modelBuilder.Entity<TurmaCurso>()
-                .HasOne(tc => tc.Turma)
-                .WithMany(t => t.TurmasCursos)
-                .HasForeignKey(tc => tc.TurmaId);
-
-            modelBuilder.Entity<TurmaCurso>()
-                .HasOne(tc => tc.Curso)
-                .WithMany(c => c.TurmasCursos)
-                .HasForeignKey(tc => tc.CursoId);
+            modelBuilder.Entity<Turma>()
+                .HasOne(t => t.Curso)
+                .WithMany(c => c.Turmas)
+                .HasForeignKey(t => t.CursoId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Aluno>()
                 .HasOne(a => a.Turma)
@@ -42,23 +34,10 @@ namespace Gradify.Data
                 .HasForeignKey(a => a.TurmaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Curso>()
-                .HasOne(c => c.Professor)
-                .WithMany(p => p.Cursos)
-                .HasForeignKey(c => c.ProfessorId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Turma>()
-                .HasOne(t => t.Professor)
-                .WithMany(p => p.Turmas)
-                .HasForeignKey(t => t.ProfessorId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             modelBuilder.Entity<Anotacao>()
-                .HasOne(a => a.Curso)
-                .WithMany(c => c.Anotacoes)
-                .HasForeignKey(a => a.CursoId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(a => a.Aula)
+                .WithMany(aula => aula.Anotacoes)
+                .HasForeignKey(a => a.AulaId);
 
             modelBuilder.Entity<Anotacao>()
                 .HasOne(a => a.Aluno)
@@ -67,10 +46,11 @@ namespace Gradify.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Aula>()
-                .HasOne(a => a.Curso)
-                .WithMany(c => c.Aulas)
-                .HasForeignKey(a => a.CursoId)
+                .HasOne(a => a.Turma)
+                .WithMany(t => t.Aulas)
+                .HasForeignKey(a => a.TurmaId)
                 .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<Frequencia>()
                 .HasOne(f => f.Aluno)

@@ -1,5 +1,6 @@
 ﻿using Gradify.Data;
 using Gradify.DTOs;
+using Gradify.Models;
 using Gradify.Services.Turmas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,11 +19,24 @@ namespace Gradify.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int cursoId)
         {
-            var turmas = await _turmaService.GetTurmas();
-            return View(turmas);
+            var turmas = await _context.Turmas
+                .Where(t => t.CursoId == cursoId)
+                //.Include(t => t.Professor)
+                .ToListAsync();
+
+            var turmasDTO = turmas.Select(t => new TurmaDTO
+            {
+                Id = t.Id,
+                Nome = t.Nome,
+                //NomeProfessor = t.Professor?.Nome ?? ""
+            });
+
+            ViewBag.CursoId = cursoId;
+            return View(turmasDTO);
         }
+
 
         public async Task<IActionResult> Detalhes(int id)
         {
@@ -33,11 +47,21 @@ namespace Gradify.Controllers
             return View(turma);
         }
 
-        public IActionResult Criar()
+        public async Task<IActionResult> Criar(int cursoId)
         {
-            CarregarProfessores();
-            return View();
+            var dto = new TurmaDTO
+            {
+                CursoId = cursoId
+            };
+            var professores = await _context.Professores.ToListAsync();
+            ViewBag.Professores = professores.Select(p => new SelectListItem
+            {
+                Value = p.Id.ToString(),
+                Text = p.Nome
+            });
+            return View(dto);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -45,13 +69,26 @@ namespace Gradify.Controllers
         {
             if (!ModelState.IsValid)
             {
-                CarregarProfessores();
+                await CarregarProfessores(); // ✅ corrigido
                 return View(dto);
             }
 
-            await _turmaService.Criar(dto);
-            return RedirectToAction(nameof(Index));
+            var turma = new Turma
+            {
+                Nome = dto.Nome,
+                DataInicio = dto.DataInicio,
+                DataFim = dto.DataFim,
+                //ProfessorId = dto.ProfessorId,
+                CursoId = dto.CursoId
+            };
+
+            _context.Turmas.Add(turma);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", new { cursoId = dto.CursoId });
         }
+
+
 
         public async Task<IActionResult> Editar(int id)
         {
@@ -59,7 +96,7 @@ namespace Gradify.Controllers
             if (turma == null)
                 return NotFound();
 
-            CarregarProfessores();
+            await CarregarProfessores();
             return View(turma);
         }
 
@@ -69,7 +106,7 @@ namespace Gradify.Controllers
         {
             if (!ModelState.IsValid)
             {
-                CarregarProfessores();
+                await CarregarProfessores();
                 return View(dto);
             }
 
@@ -85,16 +122,16 @@ namespace Gradify.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private void CarregarProfessores()
+        public async Task CarregarProfessores()
         {
-            var professores = _context.Professores
+            var professores = await _context.Professores
                 .OrderBy(p => p.Nome)
                 .Select(p => new SelectListItem
                 {
                     Value = p.Id.ToString(),
                     Text = p.Nome
                 })
-                .ToList();
+                .ToListAsync();
 
             ViewBag.Professores = professores;
         }

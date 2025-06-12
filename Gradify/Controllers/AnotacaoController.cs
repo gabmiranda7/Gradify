@@ -1,129 +1,143 @@
-﻿using Gradify.Data;
+﻿// Controller: AnotacaoController.cs
+using Gradify.Data;
 using Gradify.DTOs;
 using Gradify.Models;
-using Gradify.Services.Anotacoes;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Gradify.Controllers
 {
-    [Authorize]
     public class AnotacaoController : Controller
     {
-        private readonly IAnotacaoInterface _anotacaoService;
-        private readonly UserManager<Usuario> _userManager;
         private readonly AppDbContext _context;
 
-        public AnotacaoController(IAnotacaoInterface anotacaoService, UserManager<Usuario> userManager, AppDbContext context)
+        public AnotacaoController(AppDbContext context)
         {
-            _anotacaoService = anotacaoService;
-            _userManager = userManager;
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int aulaId)
         {
-            var usuarioLogado = await _userManager.GetUserAsync(User);
+            var aula = await _context.Aulas.Include(a => a.Turma).FirstOrDefaultAsync(a => a.Id == aulaId);
+            if (aula == null) return NotFound();
 
-            if (usuarioLogado == null)
-            {
-                TempData["Erro"] = "Usuário não autenticado.";
-                return RedirectToAction("Index", "Home");
-            }
-
-            var aluno = await _context.Alunos
-                .FirstOrDefaultAsync(a => a.UsuarioId == usuarioLogado.Id);
-
-            if (aluno == null)
-            {
-                TempData["Erro"] = $"Aluno não encontrado para o usuário logado (ID: {usuarioLogado.Id})";
-                return RedirectToAction("Index", "Home");
-            }
-
-            var anotacoes = await _anotacaoService.GetAnotacoesPorAlunoId(aluno.Id);
-            return View(anotacoes);
-        }
-
-        public async Task<IActionResult> Detalhes(int id)
-        {
-            var anotacao = await _anotacaoService.ObterPorId(id);
-            if (anotacao == null) return NotFound();
-            return View(anotacao);
-        }
-
-        public async Task<IActionResult> Criar()
-        {
-            var usuarioLogado = await _userManager.GetUserAsync(User);
-            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == usuarioLogado.Id);
-
-            if (aluno == null)
-            {
-                TempData["Erro"] = "Aluno não encontrado para o usuário logado.";
-                return RedirectToAction("Index");
-            }
+            var anotacao = await _context.Anotacoes.FirstOrDefaultAsync(a => a.AulaId == aulaId);
 
             var dto = new AnotacaoDTO
             {
-                AlunoId = aluno.Id,
-                AlunoNome = aluno.Nome
+                AulaId = aula.Id,
+                Tema = aula.Tema,
+                DataAula = aula.DataAula,
+                Texto = anotacao?.Texto ?? string.Empty
             };
+            ViewBag.Alunos = await _context.Alunos
+                .Where(aluno => aluno.TurmaId == aula.TurmaId)
+                .Select(aluno => new SelectListItem
+                {
+                    Value = aluno.Id.ToString(),
+                    Text = aluno.Nome
+                })
+                .ToListAsync();
 
-            ViewBag.Cursos = await _anotacaoService.GetCursosSelectList();
+            var presencas = await _context.Frequencias
+                .Include(f => f.Aluno)
+                .Where(f => f.AulaId == aulaId)
+                .ToListAsync();
+
+            ViewBag.Presencas = presencas;
+
+
+
             return View(dto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Criar(AnotacaoDTO dto)
+        public async Task<IActionResult> SalvarAnotacao(AnotacaoDTO dto)
         {
-            var usuarioLogado = await _userManager.GetUserAsync(User);
-            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == usuarioLogado.Id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var aluno = await _context.Alunos
+                .Include(a => a.Turma)
+                .ThenInclude(t => t.Curso)
+                .FirstOrDefaultAsync(a => a.UsuarioId == userId);
 
             if (aluno == null)
+                return Unauthorized();
+
+            var anotacao = await _context.Anotacoes
+                .FirstOrDefaultAsync(a => a.AulaId == dto.AulaId && a.AlunoId == aluno.Id);
+
+            if (anotacao == null)
             {
-                TempData["Erro"] = "Aluno não encontrado para o usuário logado.";
-                return RedirectToAction("Index");
+                anotacao = new Anotacao
+                {
+                    AulaId = dto.AulaId,
+                    AlunoId = aluno.Id,
+                    Texto = dto.Texto,
+                    DataCriacao = DateTime.Now,
+                    DataModificacao = DateTime.Now
+                };
+                _context.Anotacoes.Add(anotacao);
+            }
+            else
+            {
+                anotacao.Texto = dto.Texto;
+                anotacao.DataModificacao = DateTime.Now;
+                _context.Anotacoes.Update(anotacao);
             }
 
-            if (ModelState.IsValid)
-            {
-                dto.AlunoId = aluno.Id;
-                dto.DataCriacao = DateTime.Now;
-                dto.DataModificacao = DateTime.Now;
-                await _anotacaoService.Criar(dto);
-                return RedirectToAction(nameof(Index));
-            }
+            await _context.SaveChangesAsync();
 
-            ViewBag.Cursos = await _anotacaoService.GetCursosSelectList();
-            return View(dto);
+
+            TempData["Mensagem"] = "Anotação salva com sucesso!";
+            return RedirectToAction("Index", new { aulaId = dto.AulaId });
         }
 
-        public async Task<IActionResult> Editar(int id)
-        {
-            var anotacao = await _anotacaoService.ObterPorId(id);
-            if (anotacao == null) return NotFound();
-
-            ViewBag.Cursos = await _anotacaoService.GetCursosSelectList();
-            return View(anotacao);
-        }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar(int id, AnotacaoDTO dto)
+        public async Task<IActionResult> RegistrarFrequencia(int aulaId)
         {
-            if (id != dto.Id) return BadRequest();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            if (ModelState.IsValid)
+            var aluno = await _context.Alunos
+                .Include(a => a.Turma)
+                .FirstOrDefaultAsync(a => a.UsuarioId == userId); // ajustado para UsuarioId, se for o campo correto
+
+            if (aluno == null)
+                return Unauthorized();
+
+            var aula = await _context.Aulas
+                .Include(a => a.Turma)
+                .FirstOrDefaultAsync(a => a.Id == aulaId);
+
+            if (aula == null)
+                return NotFound();
+
+            // Verifica se já existe registro
+            bool jaRegistrado = await _context.Frequencias
+                .AnyAsync(f => f.AulaId == aulaId && f.AlunoId == aluno.Id);
+
+            if (!jaRegistrado)
             {
-                dto.DataModificacao = DateTime.Now;
-                await _anotacaoService.Editar(dto);
-                return RedirectToAction(nameof(Index));
+                var frequencia = new Frequencia
+                {
+                    AulaId = aula.Id,
+                    AlunoId = aluno.Id,
+                    Presente = true,
+                    DataRegistro = DateTime.Now,
+                    TurmaId = aula.TurmaId // 🔥 Aqui é o campo que você esqueceu de preencher antes
+                };
+
+                _context.Frequencias.Add(frequencia);
+                await _context.SaveChangesAsync();
             }
 
-            ViewBag.Cursos = await _anotacaoService.GetCursosSelectList();
-            return View(dto);
+            TempData["Mensagem"] = "Presença registrada com sucesso.";
+            return RedirectToAction("Index", new { aulaId });
         }
+
     }
 }

@@ -19,17 +19,16 @@ namespace Gradify.Services.Cursos
         public async Task<List<CursoDTO>> GetCursos()
         {
             return await _context.Cursos
-                .Include(c => c.Professor)
-                .Include(c => c.TurmasCursos)
-                .ThenInclude(tc => tc.Turma) 
+                //.Include(c => c.Professor)
+                .Include(c => c.Turmas)
                 .Select(c => new CursoDTO
                 {
                     Id = c.Id,
                     Nome = c.Nome,
                     Descricao = c.Descricao,
-                    ProfessorId = c.ProfessorId,
-                    ProfessorNome = c.Professor.Nome,
-                    TurmaIds = c.TurmasCursos.Select(tc => tc.TurmaId).ToList()
+                    //ProfessorId = c.ProfessorId,
+                    //ProfessorNome = c.Professor.Nome,
+                    TurmaIds = c.Turmas.Select(tc => tc.Id).ToList()
                 })
                 .ToListAsync();
         }
@@ -48,9 +47,8 @@ namespace Gradify.Services.Cursos
         public async Task<CursoDTO?> ObterPorId(int id)
         {
             var curso = await _context.Cursos
-                .Include(c => c.TurmasCursos)
-                    .ThenInclude(tc => tc.Turma)
-                .Include(c => c.Professor)
+                .Include(c => c.Turmas)
+                //.Include(c => c.Professor)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (curso == null) return null;
@@ -60,10 +58,8 @@ namespace Gradify.Services.Cursos
                 Id = curso.Id,
                 Nome = curso.Nome,
                 Descricao = curso.Descricao,
-                ProfessorId = curso.ProfessorId,
-                ProfessorNome = curso.Professor?.Nome,
-                TurmaIds = curso.TurmasCursos.Select(tc => tc.TurmaId).ToList(),
-                TurmaNomes = curso.TurmasCursos.Select(tc => tc.Turma.Nome).ToList()
+                //ProfessorId = curso.ProfessorId,
+                //ProfessorNome = curso.Professor?.Nome,
             };
         }
 
@@ -73,12 +69,12 @@ namespace Gradify.Services.Cursos
             {
                 Nome = dto.Nome,
                 Descricao = dto.Descricao,
-                ProfessorId = dto.ProfessorId,
+                //ProfessorId = dto.ProfessorId,
             };
 
             foreach (var turmaId in dto.TurmaIds)
             {
-                curso.TurmasCursos.Add(new TurmaCurso { TurmaId = turmaId });
+                curso.Turmas.Add(new Turma { Id = turmaId });
             }
 
             _context.Cursos.Add(curso);
@@ -88,22 +84,22 @@ namespace Gradify.Services.Cursos
         public async Task Editar(CursoDTO dto)
         {
             var curso = await _context.Cursos
-                .Include(c => c.TurmasCursos)
+                .Include(c => c.Turmas)
                 .FirstOrDefaultAsync(c => c.Id == dto.Id);
 
             if (curso == null) return;
 
             curso.Nome = dto.Nome;
             curso.Descricao = dto.Descricao;
-            curso.ProfessorId = dto.ProfessorId;
+            //curso.ProfessorId = dto.ProfessorId;
 
-            var turmasExistentes = curso.TurmasCursos.Select(tc => tc.TurmaId).ToList();
+            var turmasExistentes = curso.Turmas.Select(tc => tc.Id).ToList();
 
-            foreach (var turmaCurso in curso.TurmasCursos.ToList())
+            foreach (var turmaCurso in curso.Turmas.ToList())
             {
-                if (!dto.TurmaIds.Contains(turmaCurso.TurmaId))
+                if (!dto.TurmaIds.Contains(turmaCurso.Id))
                 {
-                    curso.TurmasCursos.Remove(turmaCurso);
+                    curso.Turmas.Remove(turmaCurso);
                 }
             }
 
@@ -111,7 +107,7 @@ namespace Gradify.Services.Cursos
             {
                 if (!turmasExistentes.Contains(turmaId))
                 {
-                    curso.TurmasCursos.Add(new TurmaCurso { TurmaId = turmaId });
+                    curso.Turmas.Add(new Turma { Id = turmaId });
                 }
             }
 
