@@ -10,6 +10,7 @@ namespace Gradify.Models
 
         public string UsuarioId { get; set; } = null!;
         public virtual Usuario Usuario { get; set; } = null!;
+        public ICollection<Aula> Aulas { get; set; } = new List<Aula>();
 
     }
 }

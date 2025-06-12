@@ -22,6 +22,14 @@ namespace Gradify.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Aula>()
+                .HasOne(a => a.Professor)
+                .WithMany(p => p.Aulas)
+                .HasForeignKey(a => a.ProfessorId)
+                .OnDelete(DeleteBehavior.Restrict);
+      
+
+
             modelBuilder.Entity<Turma>()
                 .HasOne(t => t.Curso)
                 .WithMany(c => c.Turmas)

@@ -21,6 +21,12 @@
         <input asp-for="Tema" class="form-control" />
         <span asp-validation-for="Tema" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="ProfessorId" class="control-label">Professor</label>
+        <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.Professores"></select>
+        <span asp-validation-for="ProfessorId" class="text-danger"></span>
+    </div>
+
 
     <button type="submit" class="btn btn-primary mt-3">Salvar</button>
     <a asp-action="Index" asp-route-turmaId="@Model.TurmaId" class="btn btn-secondary mt-3">Cancelar</a>

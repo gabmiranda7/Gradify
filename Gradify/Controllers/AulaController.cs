@@ -2,6 +2,7 @@
 using Gradify.DTOs;
 using Gradify.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,8 +45,16 @@ namespace Gradify.Controllers
                 TurmaId = turmaId,
                 DataAula = DateTime.Today
             };
+
+            ViewBag.Professores = new SelectList(
+                await _context.Professores.ToListAsync(),
+                "Id",
+                "Nome"
+            );
+
             return View(dto);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

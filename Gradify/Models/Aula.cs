@@ -15,6 +15,9 @@ namespace Gradify.Models
         [ForeignKey("TurmaId")]
         public Turma? Turma { get; set; }
         public ICollection<Anotacao> Anotacoes { get; set; }
+        public int? ProfessorId { get; set; }
+        public Professor? Professor { get; set; } = null!;
+
 
     }
 }

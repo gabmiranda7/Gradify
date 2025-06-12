@@ -1,4 +1,7 @@
-﻿namespace Gradify.DTOs
+﻿using Gradify.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Gradify.DTOs
 {
     public class AulaDTO
     {
@@ -7,9 +10,12 @@
         public DateTime DataAula { get; set; }
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFim { get; set; }
+        public int ProfessorId { get; set; }
+        public Aula Aula { get; set; }
 
         public int CursoId { get; set; }
         public int TurmaId { get; set; } // Adicione este campo
         public string? NomeTurma { get; set; } // Opcional, se for exibir o nome da turma
+        public IEnumerable<SelectListItem>? Professores { get; set; }
     }
 }
