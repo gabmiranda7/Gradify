@@ -5,9 +5,6 @@
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
-
-        public int ProfessorId { get; set; }
-        public string? ProfessorNome { get; set; }
         public List<int> TurmaIds { get; set; } = new List<int>();
         public List<string> TurmaNomes { get; set; } = new List<string>();
     }

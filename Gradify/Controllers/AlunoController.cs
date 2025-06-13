@@ -12,6 +12,7 @@ namespace Gradify.Controllers
         private readonly IAlunoInterface _alunoService;
         private readonly AppDbContext _context;
 
+
         public AlunoController(IAlunoInterface alunoService, AppDbContext context)
         {
             _alunoService = alunoService;
@@ -96,5 +97,13 @@ namespace Gradify.Controllers
             ViewData["Turmas"] = new SelectList(_context.Turmas, "Id", "Nome", alunoDto.TurmaId);
             return View(alunoDto);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            await _alunoService.Excluir(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -25,15 +25,6 @@
         <input asp-for="DataFim" type="date" class="form-control" />
         <span asp-validation-for="DataFim" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="ProfessorId">Professor</label>
-        <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.Professores">
-            <option value="">Selecione um professor</option>
-        </select>
-        <span asp-validation-for="ProfessorId" class="text-danger"></span>
-    </div>
-
     <button type="submit" class="btn btn-primary">Salvar Alterações</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     <input type="hidden" asp-for="CursoId" />

@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gabmi\\Downloads\\GradifyCorrigido_Completo_ComFactory\\Gradify\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify1.0\\gradify\\views\\turma\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:views\\turma\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify1.0\\gradify\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|c:\\users\\godoy\\onedrive\\\u00E1rea de trabalho\\gradify1.0\\gradify\\views\\turma\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{63AE0334-B18C-41DF-9BC1-728CC5517BE1}|Gradify.csproj|solutionrelative:views\\turma\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Views\\Turma\\Editar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Turma\\Editar.cshtml",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Views\\Turma\\Editar.cshtml",
+              "RelativeToolTip": "Views\\Turma\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-13T19:27:58.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Criar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Views\\Turma\\Criar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Turma\\Criar.cshtml",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Views\\Turma\\Criar.cshtml",
+              "RelativeToolTip": "Views\\Turma\\Criar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-13T19:24:00.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TurmaController.cs",
+              "DocumentMoniker": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Controllers\\TurmaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TurmaController.cs",
+              "ToolTip": "C:\\Users\\Godoy\\OneDrive\\\u00C1rea de Trabalho\\Gradify1.0\\Gradify\\Controllers\\TurmaController.cs",
+              "RelativeToolTip": "Controllers\\TurmaController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAiwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T19:23:12.117Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,8 +1,10 @@
-﻿using Gradify.DTOs;
+﻿using Gradify.Data;
+using Gradify.DTOs;
 using Gradify.Services.Cursos;
 using Gradify.Services.Turmas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,11 +14,15 @@ namespace Gradify.Controllers
     {
         private readonly ICursoInterface _cursoService;
         private readonly ITurmaInterface _turmaService;
+        private readonly AppDbContext _context;
 
-        public CursoController(ICursoInterface cursoService, ITurmaInterface turmaService)
+
+        public CursoController(ICursoInterface cursoService, ITurmaInterface turmaService, AppDbContext context)
         {
             _cursoService = cursoService;
             _turmaService = turmaService;
+            _context = context;
+
         }
 
         public async Task<IActionResult> Index()
@@ -79,13 +85,18 @@ namespace Gradify.Controllers
         public async Task<IActionResult> Editar(CursoDTO dto)
         {
             if (!ModelState.IsValid)
-            {
                 return View(dto);
-            }
 
-            await _cursoService.Editar(dto);
-            return RedirectToAction(nameof(Index));
+            var curso = await _context.Cursos.FindAsync(dto.Id);
+            if (curso == null) return NotFound();
+
+            curso.Nome = dto.Nome;
+            curso.Descricao = dto.Descricao;
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

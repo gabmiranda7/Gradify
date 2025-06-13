@@ -21,17 +21,21 @@ namespace Gradify.Controllers
         public async Task<IActionResult> Index(int turmaId)
         {
             var aulas = await _context.Aulas
+                .Include(a => a.Professor)
                 .Where(a => a.TurmaId == turmaId)
                 .OrderBy(a => a.DataAula)
                 .ToListAsync();
+
 
             var dtoList = aulas.Select(a => new AulaDTO
             {
                 Id = a.Id,
                 Tema = a.Tema,
                 DataAula = a.DataAula,
-                TurmaId = a.TurmaId
+                TurmaId = a.TurmaId,
+                NomeProfessor = a.Professor?.Nome // 👈 aqui
             }).ToList();
+
 
             ViewBag.TurmaId = turmaId;
             return View(dtoList);
@@ -110,6 +114,8 @@ namespace Gradify.Controllers
                 "Nome",
                 aula.ProfessorId
             );
+
+
 
             return View(dto);
         }

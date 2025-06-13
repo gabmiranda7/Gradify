@@ -21,12 +21,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
                 </div>
             }
+            <form asp-action="ExcluirAnotacao" method="post" onsubmit="return confirm('Deseja excluir esta anotação?');" class="d-inline">
+                <input type="hidden" name="aulaId" value="@Model.AulaId" />
+                <button type="submit" class="btn btn-danger px-4 mt-2">
+                    <i class="fas fa-trash"></i> Excluir Anotação
+                </button>
+            </form>
 
             <!-- Formulário de Anotação -->
             <form asp-action="SalvarAnotacao" method="post">
                 <input type="hidden" asp-for="AulaId" />
                 <input type="hidden" asp-for="TurmaId" />
-
                 <div class="mb-4">
                     <label asp-for="Texto" class="form-label fw-bold"><i class="fas fa-comment-alt"></i> Suas Anotações</label>
                     <textarea asp-for="Texto" rows="10" class="form-control shadow-sm rounded-3" placeholder="Escreva suas observações sobre esta aula..."></textarea>
@@ -50,6 +55,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Data de Registro</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +64,16 @@
                                 <tr>
                                     <td>@freq.Aluno.Nome</td>
                                     <td>@freq.DataRegistro.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>
+                                        <form asp-controller="Frequencia" asp-action="Excluir" method="post" onsubmit="return confirm('Deseja excluir esta presença?');">
+                                            <input type="hidden" name="id" value="@freq.Id" />
+                                            <input type="hidden" name="aulaId" value="@Model.AulaId" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                                        </form>
+
+                                    </td>
+
+
                                 </tr>
                             }
                         </tbody>

@@ -18,14 +18,6 @@
         <textarea asp-for="Descricao" class="form-control"></textarea>
         <span asp-validation-for="Descricao" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="ProfessorId"></label>
-        <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.Professores">
-            <option value="">Selecione um professor</option>
-        </select>
-        <span asp-validation-for="ProfessorId" class="text-danger"></span>
-    </div>
     <button type="submit" class="btn btn-primary">Criar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

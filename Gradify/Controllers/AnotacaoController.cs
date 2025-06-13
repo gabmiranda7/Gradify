@@ -2,6 +2,7 @@
 using Gradify.Data;
 using Gradify.DTOs;
 using Gradify.Models;
+using Gradify.Services.Anotacoes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace Gradify.Controllers
     public class AnotacaoController : Controller
     {
         private readonly AppDbContext _context;
+
 
         public AnotacaoController(AppDbContext context)
         {
@@ -139,6 +141,30 @@ namespace Gradify.Controllers
             TempData["Mensagem"] = "Presença registrada com sucesso.";
             return RedirectToAction("Index", new { aulaId });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ExcluirAnotacao(int aulaId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == userId);
+            if (aluno == null)
+                return Unauthorized();
+
+            var anotacao = await _context.Anotacoes
+                .FirstOrDefaultAsync(a => a.AulaId == aulaId && a.AlunoId == aluno.Id);
+
+            if (anotacao != null)
+            {
+                _context.Anotacoes.Remove(anotacao);
+                await _context.SaveChangesAsync();
+                TempData["Mensagem"] = "Anotação excluída com sucesso.";
+            }
+
+            return RedirectToAction("Index", new { aulaId });
+        }
+
+
 
     }
 }

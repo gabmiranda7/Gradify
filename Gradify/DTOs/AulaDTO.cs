@@ -11,7 +11,8 @@ namespace Gradify.DTOs
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFim { get; set; }
         public int ProfessorId { get; set; }
-        public Aula Aula { get; set; }
+        public string? NomeProfessor { get; set; }
+
 
         public int CursoId { get; set; }
         public int TurmaId { get; set; } // Adicione este campo

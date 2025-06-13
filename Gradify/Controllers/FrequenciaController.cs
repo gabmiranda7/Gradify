@@ -138,11 +138,13 @@ namespace Gradify.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(int id, int aulaId)
         {
             await _frequenciaService.Excluir(id);
-            return RedirectToAction(nameof(Index));
+            TempData["Mensagem"] = "Presença excluída com sucesso.";
+            return RedirectToAction("Index", "Anotacao", new { aulaId });
         }
+
 
         private async Task CarregarTurmas()
         {

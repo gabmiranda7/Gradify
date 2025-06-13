@@ -51,5 +51,15 @@ namespace Gradify.Services.Anotacoes
 
             await _context.SaveChangesAsync();
         }
+        public async Task ExcluirPorAulaId(int aulaId)
+        {
+            var anotacao = await _context.Anotacoes.FirstOrDefaultAsync(a => a.AulaId == aulaId);
+            if (anotacao != null)
+            {
+                _context.Anotacoes.Remove(anotacao);
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }
