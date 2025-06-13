@@ -10,5 +10,11 @@
 
         public int TurmaId { get; set; }
         public Turma Turma { get; set; } = null!;
+        public int AulaId { get; set; }
+        public Aula Aula { get; set; }
+        public bool Presente { get; set; }  // <-- Adicione esta linha
+        public DateTime DataRegistro { get; set; }
+
+
     }
 }

@@ -1,11 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Projetos\\GitHub\\Gradify\\Gradify\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7B9005B2-D65E-474E-B0DA-64043A7C7005}|..\\Tests\\Tests.csproj|c:\\projetos\\github\\gradify\\tests\\professor\\professortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\gabmi\\Downloads\\GradifyCorrigido_Completo_ComFactory\\Gradify\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -13,21 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProfessorTests.cs",
-              "DocumentMoniker": "C:\\Projetos\\GitHub\\Gradify\\Tests\\Professor\\ProfessorTests.cs",
-              "RelativeDocumentMoniker": "..\\Tests\\Professor\\ProfessorTests.cs",
-              "ToolTip": "C:\\Projetos\\GitHub\\Gradify\\Tests\\Professor\\ProfessorTests.cs",
-              "RelativeToolTip": "..\\Tests\\Professor\\ProfessorTests.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAwwLYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T00:44:00.177Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"

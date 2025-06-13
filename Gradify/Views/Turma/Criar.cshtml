@@ -34,7 +34,9 @@
 
     <button type="submit" class="btn btn-success">Salvar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <input type="hidden" asp-for="CursoId" />
 </form>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

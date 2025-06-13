@@ -37,6 +37,11 @@
                     <form id="form-excluir-@curso.Id" method="post" asp-action="Excluir" asp-route-id="@curso.Id" style="display:none;">
                         @Html.AntiForgeryToken()
                     </form>
+                    <a asp-controller="Turma" asp-action="Index" asp-route-cursoId="@curso.Id" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-users"></i> Ver Turmas
+                    </a>
+
+
 
                     <button class="btn btn-sm btn-danger" onclick="confirmarExclusao('@curso.Id')">
                         <i class="fas fa-trash"></i>

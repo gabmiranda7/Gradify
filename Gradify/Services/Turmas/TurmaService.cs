@@ -21,15 +21,15 @@ namespace Gradify.Services.Turmas
         public async Task<List<TurmaDTO>> GetTurmas()
         {
             return await _context.Turmas
-                .Include(t => t.Professor)
+                //.Include(t => t.Professor)
                 .Select(t => new TurmaDTO
                 {
                     Id = t.Id,
                     Nome = t.Nome,
                     DataInicio = t.DataInicio,
                     DataFim = t.DataFim,
-                    ProfessorId = t.ProfessorId,
-                    NomeProfessor = t.Professor.Nome
+                    //ProfessorId = t.ProfessorId,
+                    //NomeProfessor = t.Professor.Nome
                 })
                 .ToListAsync();
         }
@@ -37,7 +37,7 @@ namespace Gradify.Services.Turmas
         public async Task<TurmaDTO?> ObterPorId(int id)
         {
             var turma = await _context.Turmas
-                .Include(t => t.Professor)
+                //.Include(t => t.Professor)
                 .FirstOrDefaultAsync(t => t.Id == id);
 
             if (turma == null) return null;
@@ -48,8 +48,8 @@ namespace Gradify.Services.Turmas
                 Nome = turma.Nome,
                 DataInicio = turma.DataInicio,
                 DataFim = turma.DataFim,
-                ProfessorId = turma.ProfessorId,
-                NomeProfessor = turma.Professor.Nome
+                //ProfessorId = turma.ProfessorId,
+                //NomeProfessor = turma.Professor.Nome
             };
         }
 
@@ -60,7 +60,7 @@ namespace Gradify.Services.Turmas
                 Nome = dto.Nome,
                 DataInicio = dto.DataInicio,
                 DataFim = dto.DataFim,
-                ProfessorId = dto.ProfessorId
+                //ProfessorId = dto.ProfessorId
             };
 
             _context.Turmas.Add(turma);
@@ -75,7 +75,7 @@ namespace Gradify.Services.Turmas
             turma.Nome = dto.Nome;
             turma.DataInicio = dto.DataInicio;
             turma.DataFim = dto.DataFim;
-            turma.ProfessorId = dto.ProfessorId;
+            //turma.ProfessorId = dto.ProfessorId;
 
             await _context.SaveChangesAsync();
         }

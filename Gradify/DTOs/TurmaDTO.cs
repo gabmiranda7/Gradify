@@ -10,6 +10,8 @@
         public int ProfessorId { get; set; }
         public string NomeProfessor { get; set; } = string.Empty;
 
-        public List<int> CursosIds { get; set; } = new();
+        public int CursoId { get; set; }
+        public string? NomeCurso { get; set; }
+
     }
 }

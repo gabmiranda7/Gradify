@@ -44,13 +44,29 @@ namespace Gradify.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Criar(AlunoDTO alunoDto)
         {
-            if (ModelState.IsValid)
+            if (!User.Identity.IsAuthenticated)
+                return Unauthorized();
+
+            var usuarioId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(usuarioId))
             {
-                await _alunoService.Criar(alunoDto);
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("", "Não foi possível identificar o usuário logado.");
+                return View(alunoDto);
             }
-            ViewData["Turmas"] = new SelectList(_context.Turmas, "Id", "Nome", alunoDto.TurmaId);
-            return View(alunoDto);
+
+            alunoDto.UsuarioId = usuarioId;
+            {
+                alunoDto.UsuarioId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+                if (ModelState.IsValid)
+                {
+                    await _alunoService.Criar(alunoDto);
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["Turmas"] = new SelectList(_context.Turmas, "Id", "Nome", alunoDto.TurmaId);
+                return View(alunoDto);
+            }
         }
 
         public async Task<IActionResult> Editar(int? id)
@@ -69,6 +85,8 @@ namespace Gradify.Controllers
         public async Task<IActionResult> Editar(int id, AlunoDTO alunoDto)
         {
             if (id != alunoDto.Id) return NotFound();
+
+            alunoDto.UsuarioId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
             if (ModelState.IsValid)
             {

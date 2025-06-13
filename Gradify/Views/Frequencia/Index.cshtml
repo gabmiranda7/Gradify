@@ -1,46 +1,46 @@
-﻿@model IEnumerable<Gradify.DTOs.FrequenciaDTO>
+﻿@model IEnumerable<Gradify.Models.Frequencia>
 
 @{
-    ViewData["Title"] = "Frequências";
+    ViewData["Title"] = "Frequências Registradas";
 }
 
-<h2 class="text mb-4">📋 Frequências Registradas</h2>
+<div class="container mt-5">
+    <h2 class="mb-4"><i class="fas fa-list-check me-2"></i> Frequências Registradas</h2>
 
-<a asp-action="Criar" class="btn btn-success mb-3">
-    <i class="fas fa-plus"></i> Registrar Frequência
-</a>
-
-<table class="table table-striped table-bordered align-middle">
-    <thead class="table-light text-dark">
-        <tr>
-            <th>Aluno</th>
-            <th>Turma</th>
-            <th>Data</th>
-            <th style="width: 180px;">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var freq in Model)
-        {
+    <table class="table table-bordered shadow-sm rounded-3">
+        <thead class="table-light">
             <tr>
-                <td>@freq.NomeAluno</td>
-                <td>@freq.NomeTurma</td>
-                <td>@freq.DataFrequencia.ToShortDateString()</td>
-                <td>
-                    <a asp-action="Detalhes" asp-route-id="@freq.Id" class="btn btn-sm btn-info me-1">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                    <a asp-action="Editar" asp-route-id="@freq.Id" class="btn btn-sm btn-warning me-1">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <button type="button" class="btn btn-sm btn-danger btn-excluir" data-id="@freq.Id">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </td>
+                <th>Aluno</th>
+                <th>Turma</th>
+                <th>Aula</th>
+                <th>Presente?</th>
+                <th>Data Registro</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var f in Model)
+            {
+                <tr>
+                    <td>@f.Aluno?.Nome</td>
+                    <td>@f.Turma?.Nome</td>
+                    <td>@f.Aula?.Tema</td>
+                    <td>
+                        @if (f.Presente)
+                        {
+                            <span class="badge bg-success">Sim</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Não</span>
+                        }
+                    </td>
+                    <td>@f.DataRegistro.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

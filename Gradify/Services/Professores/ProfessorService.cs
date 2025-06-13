@@ -32,7 +32,7 @@ namespace Gradify.Services.Professores
         public async Task<ProfessorDTO?> ObterPorId(int id)
         {
             var professor = await _context.Professores
-                .Include(p => p.Cursos)
+                //.Include(p => p.Cursos)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (professor == null) return null;
@@ -42,7 +42,7 @@ namespace Gradify.Services.Professores
                 Id = professor.Id,
                 Nome = professor.Nome,
                 Email = professor.Email,
-                Cursos = professor.Cursos.Select(c => c.Nome).ToList()
+                //Cursos = professor.Cursos.Select(c => c.Nome).ToList()
             };
         }
 

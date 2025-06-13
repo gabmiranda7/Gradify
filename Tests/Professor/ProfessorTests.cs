@@ -164,7 +164,7 @@ public class ProfessorTests
         Console.WriteLine($"Total de professores antes da exclusão: {totalAntes}");
 
         var professoresSemCurso = await context.Professores
-            .Where(p => !context.Cursos.Any(c => c.ProfessorId == p.Id))
+            //.Where(p => !context.Cursos.Any(c => c.ProfessorId == p.Id))
             .ToListAsync();
 
         context.Professores.RemoveRange(professoresSemCurso);

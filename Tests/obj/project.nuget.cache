@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ho8hG94lm4=",
+  "dgSpecHash": "2M7Yy2sB/gk=",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\GitHub\\Gradify\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Users\\gabmi\\Downloads\\GradifyCorrigido_Completo_ComFactory\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabmi\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\gabmi\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

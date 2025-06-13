@@ -36,14 +36,12 @@ namespace Gradify.Controllers
 
         public async Task<IActionResult> Criar()
         {
-            ViewBag.Professores = await _cursoService.GetProfessores();
-
-            var turmas = await _turmaService.GetTurmas();
-            ViewBag.Turmas = turmas.Select(t => new SelectListItem
+            var professores = await _cursoService.GetProfessores();
+            ViewBag.Professores = professores.Select(p => new SelectListItem
             {
-                Value = t.Id.ToString(),
-                Text = t.Nome
-            }).ToList();
+                Value = p.Value.ToString(),
+                Text = p.Text
+            });
 
             return View(new CursoDTO());
         }
@@ -54,14 +52,12 @@ namespace Gradify.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Professores = await _cursoService.GetProfessores();
-
-                var turmas = await _turmaService.GetTurmas();
-                ViewBag.Turmas = turmas.Select(t => new SelectListItem
+                var professores = await _cursoService.GetProfessores();
+                ViewBag.Professores = professores.Select(p => new SelectListItem
                 {
-                    Value = t.Id.ToString(),
-                    Text = t.Nome
-                }).ToList();
+                    Value = p.Value.ToString(),
+                    Text = p.Text
+                });
 
                 return View(dto);
             }
@@ -69,21 +65,11 @@ namespace Gradify.Controllers
             await _cursoService.Criar(dto);
             return RedirectToAction(nameof(Index));
         }
-
         public async Task<IActionResult> Editar(int id)
         {
             var curso = await _cursoService.ObterPorId(id);
             if (curso == null)
                 return NotFound();
-
-            ViewBag.Professores = await _cursoService.GetProfessores();
-
-            var turmas = await _turmaService.GetTurmas();
-            ViewBag.Turmas = turmas.Select(t => new SelectListItem
-            {
-                Value = t.Id.ToString(),
-                Text = t.Nome
-            }).ToList();
 
             return View(curso);
         }
@@ -94,15 +80,6 @@ namespace Gradify.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Professores = await _cursoService.GetProfessores();
-
-                var turmas = await _turmaService.GetTurmas();
-                ViewBag.Turmas = turmas.Select(t => new SelectListItem
-                {
-                    Value = t.Id.ToString(),
-                    Text = t.Nome
-                }).ToList();
-
                 return View(dto);
             }
 

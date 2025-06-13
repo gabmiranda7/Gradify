@@ -20,10 +20,7 @@ namespace Gradify.Services.Aulas
                 .Select(a => new AulaDTO
                 {
                     Id = a.Id,
-                    DataAula = a.DataAula,
-                    HoraInicio = a.HoraInicio,
-                    HoraFim = a.HoraFim,
-                    CursoId = a.CursoId
+                    DataAula = a.DataAula
                 })
                 .ToListAsync();
         }
@@ -36,10 +33,7 @@ namespace Gradify.Services.Aulas
             return new AulaDTO
             {
                 Id = aula.Id,
-                DataAula = aula.DataAula,
-                HoraInicio = aula.HoraInicio,
-                HoraFim = aula.HoraFim,
-                CursoId = aula.CursoId
+                DataAula = aula.DataAula
             };
         }
 
@@ -47,10 +41,7 @@ namespace Gradify.Services.Aulas
         {
             var aula = new Aula
             {
-                DataAula = dto.DataAula,
-                HoraInicio = dto.HoraInicio,
-                HoraFim = dto.HoraFim,
-                CursoId = dto.CursoId
+                DataAula = dto.DataAula
             };
 
             _context.Aulas.Add(aula);
@@ -63,9 +54,6 @@ namespace Gradify.Services.Aulas
             if (aula == null) return;
 
             aula.DataAula = dto.DataAula;
-            aula.HoraInicio = dto.HoraInicio;
-            aula.HoraFim = dto.HoraFim;
-            aula.CursoId = dto.CursoId;
 
             await _context.SaveChangesAsync();
         }

@@ -5,6 +5,7 @@ using Gradify.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Gradify.Controllers
 {
@@ -31,17 +32,20 @@ namespace Gradify.Controllers
         {
             if (ModelState.IsValid)
             {
-                var resultado = await signInManager.PasswordSignInAsync(model.Email, model.Senha, model.RememberMe, false);
+                var usuario = await userManager.FindByEmailAsync(model.Email);
 
-                if (resultado.Succeeded)
+                if (usuario != null)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var result = await signInManager.CheckPasswordSignInAsync(usuario, model.Senha, false);
+
+                    if (result.Succeeded)
+                    {
+                        await signInManager.SignInAsync(usuario, isPersistent: model.RememberMe);
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Login ou senha inválidos.");
-                    return View(model);
-                }
+
+                ModelState.AddModelError(string.Empty, "Login ou senha inválidos.");
             }
 
             return View(model);
@@ -57,7 +61,7 @@ namespace Gradify.Controllers
         {
             if (ModelState.IsValid)
             {
-                Usuario usuario = new Usuario
+                var usuario = new Usuario
                 {
                     UserName = model.Email,
                     Email = model.Email,
@@ -98,7 +102,6 @@ namespace Gradify.Controllers
                     }
 
                     await context.SaveChangesAsync();
-
                     return RedirectToAction("Login", "Conta");
                 }
                 else
@@ -109,6 +112,7 @@ namespace Gradify.Controllers
                     }
                 }
             }
+
             return View(model);
         }
 
@@ -128,10 +132,8 @@ namespace Gradify.Controllers
                     ModelState.AddModelError(nameof(model.Email), "Nenhum usuário encontrado com esse email.");
                     return View(model);
                 }
-                else
-                {
-                    return RedirectToAction("MudarSenha", "Conta", new { username = usuario.UserName });
-                }
+
+                return RedirectToAction("MudarSenha", new { username = usuario.UserName });
             }
 
             return View(model);
@@ -141,8 +143,9 @@ namespace Gradify.Controllers
         {
             if (string.IsNullOrEmpty(username))
             {
-                return RedirectToAction("VerificarEmail", "Conta");
+                return RedirectToAction("VerificarEmail");
             }
+
             return View(new MudarSenhaViewModel { Email = username });
         }
 
@@ -158,29 +161,26 @@ namespace Gradify.Controllers
                     if (resultado.Succeeded)
                     {
                         resultado = await userManager.AddPasswordAsync(usuario, model.NovaSenha);
-                        return RedirectToAction("Login", "Conta");
-                    }
-                    else
-                    {
-                        foreach (var error in resultado.Errors)
+                        if (resultado.Succeeded)
                         {
-                            ModelState.AddModelError("", error.Description);
+                            return RedirectToAction("Login", "Conta");
                         }
-
-                        return View(model);
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Email não encontrado!");
+
+                    foreach (var error in resultado.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+
                     return View(model);
                 }
-            }
-            else
-            {
-                ModelState.AddModelError("", "Algo deu errado, tente novamente.");
+
+                ModelState.AddModelError("", "Email não encontrado!");
                 return View(model);
             }
+
+            ModelState.AddModelError("", "Algo deu errado, tente novamente.");
+            return View(model);
         }
 
         [HttpPost]

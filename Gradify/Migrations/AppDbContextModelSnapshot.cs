@@ -70,7 +70,7 @@ namespace Gradify.Migrations
                     b.Property<int>("AlunoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CursoId")
+                    b.Property<int>("AulaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DataCriacao")
@@ -87,7 +87,7 @@ namespace Gradify.Migrations
 
                     b.HasIndex("AlunoId");
 
-                    b.HasIndex("CursoId");
+                    b.HasIndex("AulaId");
 
                     b.ToTable("Anotacoes");
                 });
@@ -100,21 +100,24 @@ namespace Gradify.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CursoId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DataAula")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("HoraFim")
-                        .HasColumnType("time");
+                    b.Property<int?>("ProfessorId")
+                        .HasColumnType("int");
 
-                    b.Property<TimeSpan>("HoraInicio")
-                        .HasColumnType("time");
+                    b.Property<string>("Tema")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TurmaId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CursoId");
+                    b.HasIndex("ProfessorId");
+
+                    b.HasIndex("TurmaId");
 
                     b.ToTable("Aulas");
                 });
@@ -135,12 +138,7 @@ namespace Gradify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfessorId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProfessorId");
 
                     b.ToTable("Cursos");
                 });
@@ -156,8 +154,17 @@ namespace Gradify.Migrations
                     b.Property<int>("AlunoId")
                         .HasColumnType("int");
 
+                    b.Property<int>("AulaId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataFrequencia")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Presente")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TurmaId")
                         .HasColumnType("int");
@@ -165,6 +172,8 @@ namespace Gradify.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AlunoId");
+
+                    b.HasIndex("AulaId");
 
                     b.HasIndex("TurmaId");
 
@@ -207,6 +216,9 @@ namespace Gradify.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CursoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataFim")
                         .HasColumnType("datetime2");
 
@@ -217,29 +229,11 @@ namespace Gradify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfessorId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProfessorId");
-
-                    b.ToTable("Turmas");
-                });
-
-            modelBuilder.Entity("Gradify.Models.TurmaCurso", b =>
-                {
-                    b.Property<int>("TurmaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CursoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TurmaId", "CursoId");
 
                     b.HasIndex("CursoId");
 
-                    b.ToTable("TurmasCursos");
+                    b.ToTable("Turmas");
                 });
 
             modelBuilder.Entity("Gradify.Models.Usuario", b =>
@@ -469,37 +463,33 @@ namespace Gradify.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Gradify.Models.Curso", "Curso")
+                    b.HasOne("Gradify.Models.Aula", "Aula")
                         .WithMany("Anotacoes")
-                        .HasForeignKey("CursoId")
+                        .HasForeignKey("AulaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Aluno");
 
-                    b.Navigation("Curso");
+                    b.Navigation("Aula");
                 });
 
             modelBuilder.Entity("Gradify.Models.Aula", b =>
                 {
-                    b.HasOne("Gradify.Models.Curso", "Curso")
+                    b.HasOne("Gradify.Models.Professor", "Professor")
                         .WithMany("Aulas")
-                        .HasForeignKey("CursoId")
+                        .HasForeignKey("ProfessorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Gradify.Models.Turma", "Turma")
+                        .WithMany("Aulas")
+                        .HasForeignKey("TurmaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Curso");
-                });
-
-            modelBuilder.Entity("Gradify.Models.Curso", b =>
-                {
-                    b.HasOne("Gradify.Models.Professor", "Professor")
-                        .WithMany("Cursos")
-                        .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Professor");
+
+                    b.Navigation("Turma");
                 });
 
             modelBuilder.Entity("Gradify.Models.Frequencia", b =>
@@ -510,6 +500,12 @@ namespace Gradify.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Gradify.Models.Aula", "Aula")
+                        .WithMany()
+                        .HasForeignKey("AulaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Gradify.Models.Turma", "Turma")
                         .WithMany()
                         .HasForeignKey("TurmaId")
@@ -517,6 +513,8 @@ namespace Gradify.Migrations
                         .IsRequired();
 
                     b.Navigation("Aluno");
+
+                    b.Navigation("Aula");
 
                     b.Navigation("Turma");
                 });
@@ -534,32 +532,13 @@ namespace Gradify.Migrations
 
             modelBuilder.Entity("Gradify.Models.Turma", b =>
                 {
-                    b.HasOne("Gradify.Models.Professor", "Professor")
-                        .WithMany("Turmas")
-                        .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Professor");
-                });
-
-            modelBuilder.Entity("Gradify.Models.TurmaCurso", b =>
-                {
                     b.HasOne("Gradify.Models.Curso", "Curso")
-                        .WithMany("TurmasCursos")
+                        .WithMany("Turmas")
                         .HasForeignKey("CursoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Gradify.Models.Turma", "Turma")
-                        .WithMany("TurmasCursos")
-                        .HasForeignKey("TurmaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Curso");
-
-                    b.Navigation("Turma");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -620,27 +599,26 @@ namespace Gradify.Migrations
                     b.Navigation("Frequencias");
                 });
 
-            modelBuilder.Entity("Gradify.Models.Curso", b =>
+            modelBuilder.Entity("Gradify.Models.Aula", b =>
                 {
                     b.Navigation("Anotacoes");
+                });
 
-                    b.Navigation("Aulas");
-
-                    b.Navigation("TurmasCursos");
+            modelBuilder.Entity("Gradify.Models.Curso", b =>
+                {
+                    b.Navigation("Turmas");
                 });
 
             modelBuilder.Entity("Gradify.Models.Professor", b =>
                 {
-                    b.Navigation("Cursos");
-
-                    b.Navigation("Turmas");
+                    b.Navigation("Aulas");
                 });
 
             modelBuilder.Entity("Gradify.Models.Turma", b =>
                 {
                     b.Navigation("Alunos");
 
-                    b.Navigation("TurmasCursos");
+                    b.Navigation("Aulas");
                 });
 
             modelBuilder.Entity("Gradify.Models.Usuario", b =>

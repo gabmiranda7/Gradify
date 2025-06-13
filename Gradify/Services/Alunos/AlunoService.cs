@@ -53,11 +53,14 @@ namespace Gradify.Services.Alunos
 
         public async Task Criar(AlunoDTO dto)
         {
+            if (_context.Alunos.Any(a => a.UsuarioId == dto.UsuarioId)) return;
+
             var aluno = new Aluno
             {
                 Nome = dto.Nome,
                 Matricula = dto.Matricula,
-                Email = dto.Email
+                Email = dto.Email,
+                UsuarioId = dto.UsuarioId
             };
             _context.Alunos.Add(aluno);
             await _context.SaveChangesAsync();
@@ -71,6 +74,7 @@ namespace Gradify.Services.Alunos
             aluno.Nome = dto.Nome;
             aluno.Matricula = dto.Matricula;
             aluno.Email = dto.Email;
+            aluno.UsuarioId = dto.UsuarioId;
 
             await _context.SaveChangesAsync();
         }

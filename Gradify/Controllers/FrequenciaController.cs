@@ -23,13 +23,27 @@ namespace Gradify.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var frequencias = await _frequenciaService.GetFrequencias();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == userId);
+
+            var frequencias = await _context.Frequencias
+                .Include(f => f.Aluno)
+                .Include(f => f.Turma)
+                .Include(f => f.Aula)
+                .Where(f => f.AlunoId == aluno.Id)
+                .ToListAsync();
+
+            ViewBag.ShowCreateButton = true;
             return View(frequencias);
         }
 
-        public IActionResult Criar()
+        public async Task<IActionResult> Criar()
         {
-            CarregarTurmas();
+            var usuarioId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            await CarregarTurmas();
+            ViewBag.Aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == usuarioId);
+
             return View();
         }
 
@@ -37,28 +51,23 @@ namespace Gradify.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Criar(FrequenciaDTO dto)
         {
-            if (!ModelState.IsValid)
-            {
-                CarregarTurmas();
-                return View(dto);
-            }
-
             var usuarioId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (string.IsNullOrEmpty(usuarioId))
-            {
                 return Unauthorized();
-            }
 
-            var aluno = await _context.Alunos
-                .FirstOrDefaultAsync(a => a.UsuarioId == usuarioId);
-
+            var aluno = await _context.Alunos.FirstOrDefaultAsync(a => a.UsuarioId == usuarioId);
             if (aluno == null)
-            {
                 return NotFound("Aluno não encontrado.");
-            }
 
             dto.AlunoId = aluno.Id;
+
+            if (!ModelState.IsValid)
+            {
+                await CarregarTurmas();
+                ViewBag.Aluno = aluno;
+                return View(dto);
+            }
 
             await _frequenciaService.Criar(dto);
             return RedirectToAction(nameof(Index));
@@ -92,8 +101,8 @@ namespace Gradify.Controllers
             if (frequencia.AlunoId != alunoLogado.Id)
                 return Forbid();
 
-            CarregarTurmas();
-
+            await CarregarTurmas();
+            ViewBag.Aluno = alunoLogado;
             ViewBag.AlunoLogadoNome = alunoLogado.Nome;
 
             return View(frequencia);
@@ -117,7 +126,8 @@ namespace Gradify.Controllers
 
             if (!ModelState.IsValid)
             {
-                CarregarTurmas();
+                await CarregarTurmas();
+                ViewBag.Aluno = alunoLogado;
                 ViewBag.AlunoLogadoNome = alunoLogado.Nome;
                 return View(dto);
             }
@@ -134,14 +144,14 @@ namespace Gradify.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private void CarregarTurmas()
+        private async Task CarregarTurmas()
         {
-            var turmas = _context.Turmas
+            var turmas = await _context.Turmas
                 .Select(t => new SelectListItem
                 {
                     Value = t.Id.ToString(),
                     Text = t.Nome
-                }).ToList();
+                }).ToListAsync();
 
             ViewBag.Turmas = turmas;
         }
