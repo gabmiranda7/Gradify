@@ -4,12 +4,91 @@
     int turmaId = ViewBag.TurmaId;
 }
 
+<style>
+    body {
+        background-color: #fdf8f2;
+    }
+
+    h2 i {
+        color: #6c5b3f;
+    }
+
+    .btn {
+        border-radius: 8px;
+        color: #fff;
+    }
+
+    .btn-success {
+        background-color: #5c8a64;
+        border-color: #5c8a64;
+    }
+
+    .btn-secondary {
+        background-color: #7a6e65;
+        border-color: #7a6e65;
+    }
+
+    .btn-warning {
+        background-color: #c1873e;
+        border-color: #c1873e;
+    }
+
+    .btn-danger {
+        background-color: #a13c2f;
+        border-color: #a13c2f;
+    }
+
+    .btn-primary {
+        background-color: #34568B;
+        border-color: #34568B;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #e0d8cf;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+    .card-title {
+        color: #4a3a2c;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+        color: #6c5b3f;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        margin-bottom: 1rem;
+    }
+
+    .btn-sm {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.85rem;
+    }
+</style>
+
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2><i class="fas fa-book-open me-2"></i> Aulas</h2>
-        <a class="btn btn-success" asp-action="Criar" asp-route-turmaId="@turmaId">
-            <i class="fas fa-plus-circle me-1"></i> Nova Aula
-        </a>
+        <div>
+            <a class="btn btn-success me-2" asp-action="Criar" asp-route-turmaId="@turmaId">
+                <i class="fas fa-plus-circle me-1"></i> Nova Aula
+            </a>
+            <a asp-controller="Turma" asp-action="Index" asp-route-cursoId="@ViewBag.CursoId" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar para Turmas
+            </a>
+        </div>
     </div>
 
     @if (!Model.Any())
@@ -18,38 +97,32 @@
     }
     else
     {
-        <table class="table table-bordered table-hover shadow">
-            <thead class="table-light">
-                <tr>
-                    <th>Data</th>
-                    <th>Tema</th>
-                    <th>Professor</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var aula in Model)
-                {
-                    <tr>
-                        <td>@aula.DataAula.ToString("dd/MM/yyyy")</td>
-                        <td>@aula.Tema</td>
-                        <td>@aula.NomeProfessor</td>
-                        <td>
+        <div class="row">
+            @foreach (var aula in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title"><i class="fas fa-calendar-alt me-1"></i> @aula.DataAula.ToString("dd/MM/yyyy")</h5>
+                            <h6 class="card-subtitle">@aula.Tema</h6>
+                            <p class="card-text"><strong>Professor:</strong> @aula.NomeProfessor</p>
+                        </div>
+                        <div class="mt-2 d-flex flex-wrap gap-2">
                             <a asp-action="Editar" asp-route-id="@aula.Id" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Editar
                             </a>
-                            <form asp-action="Excluir" asp-route-id="@aula.Id" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja excluir esta aula?');">
+                            <form asp-action="Excluir" asp-route-id="@aula.Id" method="post" class="d-inline" onsubmit="return confirm('Deseja excluir esta aula?');">
+                                <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i> Excluir
                                 </button>
                             </form>
                             <a class="btn btn-primary btn-sm" asp-controller="Anotacao" asp-action="Index" asp-route-aulaId="@aula.Id">
                                 <i class="fas fa-folder-open"></i> Abrir
                             </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     }
 </div>

@@ -5,36 +5,95 @@
     var cursoNome = ViewBag.CursoNome as string;
 }
 
+<style>
+    body {
+        background-color: #fdf8f2;
+    }
 
-<h2>Criar Turma</h2>
+    h2 {
+        color: #3a4f63;
+        margin-bottom: 2rem;
+    }
 
-<form asp-action="Criar" method="post">
-    <input type="hidden" asp-for="CursoId" />
+    .form-container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        max-width: 600px;
+        margin: 0 auto;
+    }
 
-    <div class="form-group mb-3">
-        <label>Curso</label>
-        <input class="form-control" value="@cursoNome" readonly />
-    </div>
-        <label>Período (ex: 2025/01)</label>
-        <input asp-for="Nome" class="form-control" placeholder="2025/01" />
-        <span asp-validation-for="Nome" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="DataInicio" class="form-label"></label>
-        <input asp-for="DataInicio" type="date" class="form-control" />
-        <span asp-validation-for="DataInicio" class="text-danger"></span>
-    </div>
+    label {
+        font-weight: 500;
+        color: #3a3a3a;
+    }
 
-    <div class="mb-3">
-        <label asp-for="DataFim" class="form-label"></label>
-        <input asp-for="DataFim" type="date" class="form-control" />
-        <span asp-validation-for="DataFim" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    <input type="hidden" asp-for="CursoId" />
-</form>
+    .form-control {
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        margin-top: 0.25rem;
+    }
 
+    .btn-success {
+        background-color: #5c8a64;
+        border-color: #5c8a64;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .btn-secondary {
+        background-color: #7a6e65;
+        border-color: #7a6e65;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .btn + .btn {
+        margin-left: 0.5rem;
+    }
+</style>
+
+<div class="form-container mt-5">
+    <h2><i class="fas fa-plus me-2"></i>Criar Turma</h2>
+
+    <form asp-action="Criar" method="post">
+        <input type="hidden" asp-for="CursoId" />
+
+        <div class="form-group mb-3">
+            <label>Curso</label>
+            <input class="form-control" value="@cursoNome" readonly />
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Período (ex: 2025/01)</label>
+            <input asp-for="Nome" class="form-control" placeholder="2025/01" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataInicio" class="form-label"></label>
+            <input asp-for="DataInicio" type="date" class="form-control"
+                   value="@(Model.DataInicio == DateTime.MinValue ? DateTime.Now.ToString("yyyy-MM-dd") : Model.DataInicio.ToString("yyyy-MM-dd"))" />
+            <span asp-validation-for="DataInicio" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataFim" class="form-label"></label>
+            <input asp-for="DataFim" type="date" class="form-control"
+                   value="@(Model.DataFim == DateTime.MinValue ? DateTime.Now.ToString("yyyy-MM-dd") : Model.DataFim.ToString("yyyy-MM-dd"))" />
+            <span asp-validation-for="DataFim" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-save me-1"></i>Salvar
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="fas fa-times me-1"></i>Cancelar
+        </a>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -23,10 +23,15 @@ namespace Gradify.Controllers
         public async Task<IActionResult> Index(int aulaId)
         {
             if (aulaId == 0) return NotFound();
-            var aula = await _context.Aulas.Include(a => a.Turma).FirstOrDefaultAsync(a => a.Id == aulaId);
+
+            var aula = await _context.Aulas
+                .Include(a => a.Turma)
+                .FirstOrDefaultAsync(a => a.Id == aulaId);
+
             if (aula == null) return NotFound();
 
-            var anotacao = await _context.Anotacoes.FirstOrDefaultAsync(a => a.AulaId == aulaId);
+            var anotacao = await _context.Anotacoes
+                .FirstOrDefaultAsync(a => a.AulaId == aulaId);
 
             var dto = new AnotacaoDTO
             {
@@ -35,6 +40,7 @@ namespace Gradify.Controllers
                 DataAula = aula.DataAula,
                 Texto = anotacao?.Texto ?? string.Empty
             };
+
             ViewBag.Alunos = await _context.Alunos
                 .Where(aluno => aluno.TurmaId == aula.TurmaId)
                 .Select(aluno => new SelectListItem
@@ -51,10 +57,12 @@ namespace Gradify.Controllers
 
             ViewBag.Presencas = presencas;
 
-
+            // 👉 Adicione esta linha:
+            ViewBag.TurmaId = aula.TurmaId;
 
             return View(dto);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

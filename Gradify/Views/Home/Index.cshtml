@@ -3,64 +3,60 @@
 }
 
 <style>
-    .btn-outline-anotacao {
-        color: #17a2b8;
-        border-color: #17a2b8;
-        background-color: transparent;
+    .btn-curso-destaque {
+        font-size: 1.5rem;
+        padding: 1.2rem 2.5rem;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease;
     }
 
-        .btn-outline-anotacao:hover,
-        .btn-outline-anotacao:focus {
-            background-color: #17a2b8;
-            color: white;
-            border-color: #17a2b8;
+        .btn-curso-destaque:hover {
+            background-color: #218838;
+            transform: scale(1.02);
         }
 
-    .btn-outline-curso {
-        color: #28a745;
-        border-color: #28a745;
-        background-color: transparent;
+    .atalhos-secundarios {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
     }
 
-        .btn-outline-curso:hover,
-        .btn-outline-curso:focus {
-            background-color: #28a745;
-            color: white;
-            border-color: #28a745;
+        .atalhos-secundarios a {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
         }
+
+            .atalhos-secundarios a:hover {
+                background-color: #e6e6e6;
+            }
+
+    body {
+        background-color: #fdf8f2;
+    }
 </style>
 
 <div class="container text-center mt-5">
-    <h1 class="display-4 mb-4"><i class="fas fa-school"></i> Bem-vindo ao Gradify</h1>
-    <p class="lead mb-5">Escolha uma das opções abaixo para começar:</p>
+    <h1 class="display-4 mb-3"><i class="fas fa-school"></i> Bem-vindo ao Gradify</h1>
+    <p class="lead mb-4">Gerencie seu sistema acadêmico com facilidade.</p>
 
-    <div class="d-flex flex-column align-items-center gap-3">
-        <a href="@Url.Action("Index", "Aluno")" class="btn btn-outline-primary btn-lg w-50">
-            <i class="fas fa-user-graduate"></i> Alunos
-        </a>
+    <a href="@Url.Action("Index", "Curso")" class="btn btn-curso-destaque mb-4">
+        <i class="fas fa-book"></i> Acessar Cursos
+    </a>
 
-        <a href="@Url.Action("Index", "Anotacao")" class="btn btn-outline-anotacao btn-lg w-50">
-            <i class="fas fa-sticky-note"></i> Anotações
-        </a>
-
-        <a href="@Url.Action("Index", "Aula")" class="btn btn-outline-danger btn-lg w-50">
-            <i class="fas fa-chalkboard"></i> Aulas
-        </a>
-
-        <a href="@Url.Action("Index", "Curso")" class="btn btn-outline-curso btn-lg w-50">
-            <i class="fas fa-book"></i> Cursos
-        </a>
-
-        <a href="@Url.Action("Index", "Frequencia")" class="btn btn-outline-info btn-lg w-50">
-            <i class="fas fa-calendar-check"></i> Frequências
-        </a>
-
-        <a href="@Url.Action("Index", "Professor")" class="btn btn-outline-success btn-lg w-50">
-            <i class="fas fa-chalkboard-teacher"></i> Professores
-        </a>
-
-        <a href="@Url.Action("Index", "Turma")" class="btn btn-outline-warning btn-lg w-50">
-            <i class="fas fa-users"></i> Turmas
-        </a>
+    <div class="atalhos-secundarios">
+        <a href="@Url.Action("Index", "Aluno")"><i class="fas fa-user-graduate me-1"></i> Alunos</a>
+        <a href="@Url.Action("Index", "Professor")"><i class="fas fa-chalkboard-teacher me-1"></i> Professores</a>
+        <a href="@Url.Action("Index", "Frequencia")"><i class="fas fa-calendar-check me-1"></i> Frequências</a>
     </div>
 </div>

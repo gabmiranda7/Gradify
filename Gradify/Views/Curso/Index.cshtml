@@ -4,48 +4,143 @@
     ViewData["Title"] = "Cursos";
 }
 
-<h2 class="text mb-4">Cursos</h2>
+<style>
+    body {
+        background-color: #fdf8f2;
+    }
 
-<a asp-action="Criar" class="btn btn-primary mb-3">
-    <i class="fas fa-plus"></i> Novo Curso
-</a>
+    h2 {
+        color: #343a40;
+        font-weight: 600;
+    }
 
-<table class="table table-bordered table-hover rounded">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
+    .btn {
+        border-radius: 8px;
+        color: #fff;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-novo {
+        background-color: #5c8a64;
+        border-color: #5c8a64;
+    }
+
+        .btn-novo:hover {
+            background-color: #4d7453;
+        }
+
+    .btn-info {
+        background-color: #0dbadf;
+        border-color: #0dbadf;
+    }
+
+        .btn-info:hover {
+            background-color: #0aa2c0;
+        }
+
+    .btn-warning {
+        background-color: #c1873e;
+        border-color: #c1873e;
+    }
+
+        .btn-warning:hover {
+            background-color: #a96f2c;
+        }
+
+    .btn-danger {
+        background-color: #a13c2f;
+        border-color: #a13c2f;
+    }
+
+        .btn-danger:hover {
+            background-color: #872f26;
+        }
+
+    .btn-azul-escuro {
+        background-color: #34568B;
+        border-color: #34568B;
+        color: white;
+    }
+
+        .btn-azul-escuro:hover {
+            background-color: #2d4975;
+            border-color: #2d4975;
+            color: white;
+        }
+
+
+    .btn-sm {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .card-curso {
+        background-color: #ffffff;
+        border: 1px solid #e0dad4;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    }
+
+        .card-curso:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-curso h5 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .card-curso p {
+            color: #666;
+        }
+
+    .acoes {
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-book me-2"></i> Cursos</h2>
+        <a asp-action="Criar" class="btn btn-novo">
+            <i class="fas fa-plus me-1"></i> Novo Curso
+        </a>
+    </div>
+
+    <div class="row">
         @foreach (var curso in Model)
         {
-            <tr>
-                <td>@curso.Nome</td>
-                <td>@curso.Descricao</td>
-                <td>
-                    <a asp-action="Detalhes" asp-route-id="@curso.Id" class="btn btn-sm btn-info me-1">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                    <a asp-action="Editar" asp-route-id="@curso.Id" class="btn btn-sm btn-warning me-1">
-                        <i class="fas fa-edit"></i>
-                    </a>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-curso">
+                    <h5><i class="fas fa-graduation-cap me-2"></i>@curso.Nome</h5>
+                    <p>@curso.Descricao</p>
 
-                    <form id="form-excluir-@curso.Id" method="post" asp-action="Excluir" asp-route-id="@curso.Id" style="display:none;">
-                        @Html.AntiForgeryToken()
-                    </form>
-                    <a asp-controller="Turma" asp-action="Index" asp-route-cursoId="@curso.Id" class="btn btn-outline-primary btn-sm">
-                        <i class="fas fa-users"></i> Ver Turmas
-                    </a>
-                    <button class="btn btn-sm btn-danger" onclick="confirmarExclusao('@curso.Id')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
+                    <div class="acoes d-flex flex-wrap gap-2">
+                        <a asp-action="Detalhes" asp-route-id="@curso.Id" class="btn btn-sm btn-info">
+                            <i class="fas fa-eye"></i> Detalhes
+                        </a>
+                        <a asp-action="Editar" asp-route-id="@curso.Id" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a asp-controller="Turma" asp-action="Index" asp-route-cursoId="@curso.Id" class="btn btn-sm btn-azul-escuro">
+                            <i class="fas fa-users"></i> Turmas
+                        </a>
+                        <form id="form-excluir-@curso.Id" method="post" asp-action="Excluir" asp-route-id="@curso.Id" style="display:none;">
+                            @Html.AntiForgeryToken()
+                        </form>
+                        <button class="btn btn-sm btn-danger" onclick="confirmarExclusao('@curso.Id')">
+                            <i class="fas fa-trash"></i> Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

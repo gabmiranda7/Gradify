@@ -4,12 +4,91 @@
     ViewData["Title"] = "Anotações da Aula";
 }
 
+<style>
+    body {
+        background-color: #fdf8f2;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 16px;
+        border: 1px solid #e3dcd2;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-header {
+        background-color: #34568B;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
+    .btn {
+        border-radius: 8px;
+        color: white;
+    }
+
+    .btn-success {
+        background-color: #5c8a64;
+        border-color: #5c8a64;
+    }
+
+    .btn-danger {
+        background-color: #a13c2f;
+        border-color: #a13c2f;
+    }
+
+    .btn-secondary {
+        background-color: #7a6e65;
+        border-color: #7a6e65;
+    }
+
+    .btn-outline-primary {
+        border-color: #34568B;
+        color: #34568B;
+        background-color: transparent;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #34568B;
+            color: white;
+        }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid #d4c7bd;
+    }
+
+    .table {
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+        .table th {
+            background-color: #ece8e2;
+            color: #5a4833;
+        }
+
+    .alert-success {
+        background-color: #d9f0e2;
+        border: 1px solid #b7e4c3;
+        color: #376348;
+    }
+
+    h5 i {
+        color: #6c5b3f;
+    }
+</style>
+
 <div class="container mt-5">
     <div class="card shadow rounded-4">
-        <div class="card-header bg-primary text-white rounded-top-4 d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h4 class="mb-0"><i class="fas fa-sticky-note me-2"></i> Anotações da Aula</h4>
-            <a asp-controller="Aula" asp-action="Index" asp-route-turmaId="@Model.TurmaId" class="btn btn-light text-primary fw-bold">
-                <i class="fas fa-arrow-left"></i> Voltar
+            <a asp-controller="Aula" asp-action="Index" asp-route-turmaId="@ViewBag.TurmaId" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar para Aulas
             </a>
         </div>
 
@@ -21,6 +100,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
                 </div>
             }
+
             <form asp-action="ExcluirAnotacao" method="post" onsubmit="return confirm('Deseja excluir esta anotação?');" class="d-inline">
                 <input type="hidden" name="aulaId" value="@Model.AulaId" />
                 <button type="submit" class="btn btn-danger px-4 mt-2">
@@ -28,30 +108,29 @@
                 </button>
             </form>
 
-            <!-- Formulário de Anotação -->
             <form asp-action="SalvarAnotacao" method="post">
                 <input type="hidden" asp-for="AulaId" />
                 <input type="hidden" asp-for="TurmaId" />
-                <div class="mb-4">
+
+                <div class="mb-4 mt-3">
                     <label asp-for="Texto" class="form-label fw-bold"><i class="fas fa-comment-alt"></i> Suas Anotações</label>
-                    <textarea asp-for="Texto" rows="10" class="form-control shadow-sm rounded-3" placeholder="Escreva suas observações sobre esta aula..."></textarea>
+                    <textarea asp-for="Texto" rows="10" class="form-control shadow-sm" placeholder="Escreva suas observações sobre esta aula..."></textarea>
                     <span asp-validation-for="Texto" class="text-danger"></span>
                 </div>
 
-                <button type="submit" class="btn btn-success px-4">
+                <button type="submit" class="btn btn-success px-4 mb-3">
                     <i class="fas fa-save"></i> Salvar Anotação
                 </button>
             </form>
 
             <hr class="my-4" />
 
-            <!-- Tabela de Presenças -->
             @if (ViewBag.Presencas != null && ((List<Gradify.Models.Frequencia>)ViewBag.Presencas).Any())
             {
                 <div class="mt-4">
                     <h5><i class="fas fa-users me-2"></i> Alunos Presentes</h5>
-                    <table class="table table-striped table-bordered mt-2 shadow-sm">
-                        <thead class="table-light">
+                    <table class="table table-striped table-bordered mt-2">
+                        <thead>
                             <tr>
                                 <th>Nome</th>
                                 <th>Data de Registro</th>
@@ -70,10 +149,7 @@
                                             <input type="hidden" name="aulaId" value="@Model.AulaId" />
                                             <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
                                         </form>
-
                                     </td>
-
-
                                 </tr>
                             }
                         </tbody>
@@ -85,7 +161,6 @@
                 <p class="text-muted"><i class="fas fa-info-circle"></i> Nenhuma presença registrada ainda.</p>
             }
 
-            <!-- Botão para registrar presença (em formulário separado) -->
             <form asp-action="RegistrarFrequencia" method="post" class="mt-4">
                 <input type="hidden" name="AulaId" value="@Model.AulaId" />
                 <button type="submit" class="btn btn-outline-primary px-4">
@@ -95,7 +170,6 @@
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     <script>

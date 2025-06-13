@@ -3,32 +3,90 @@
     ViewData["Title"] = "Editar Turma";
 }
 
-<h2 class="mb-4">Editar Turma</h2>
+<style>
+    body {
+        background-color: #fdf8f2;
+    }
 
-<form asp-action="Editar" method="post">
-    <input type="hidden" asp-for="Id" />
+    h2 {
+        color: #343a40;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
 
-    <div class="mb-3">
-        <label asp-for="Nome" class="form-label">Nome da Turma</label>
-        <input asp-for="Nome" class="form-control" />
-        <span asp-validation-for="Nome" class="text-danger"></span>
-    </div>
+    .form-label {
+        font-weight: 500;
+        color: #5a4833;
+    }
 
-    <div class="mb-3">
-        <label asp-for="DataInicio" class="form-label">Data de Início</label>
-        <input asp-for="DataInicio" type="date" class="form-control" />
-        <span asp-validation-for="DataInicio" class="text-danger"></span>
-    </div>
+    .form-control {
+        border-radius: 8px;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        padding: 0.6rem 1rem;
+    }
 
-    <div class="mb-3">
-        <label asp-for="DataFim" class="form-label">Data de Fim</label>
-        <input asp-for="DataFim" type="date" class="form-control" />
-        <span asp-validation-for="DataFim" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    <input type="hidden" asp-for="CursoId" />
-</form>
+    .btn {
+        border-radius: 8px;
+        padding: 0.5rem 1.2rem;
+        font-weight: 500;
+    }
+
+    .btn-primary {
+        background-color: #265073;
+        border-color: #265073;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #7a6e65;
+        border-color: #7a6e65;
+        color: white;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2><i class="fas fa-pen me-2"></i> Editar Turma</h2>
+
+    <form asp-action="Editar" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CursoId" />
+
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label">Período (ex: 2025/01)</label>
+            <input asp-for="Nome" class="form-control" placeholder="2025/01" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataInicio" class="form-label">Data de Início</label>
+            <input asp-for="DataInicio" type="date" class="form-control"
+                   value="@(Model.DataInicio == DateTime.MinValue ? DateTime.Now.ToString("yyyy-MM-dd") : Model.DataInicio.ToString("yyyy-MM-dd"))" />
+            <span asp-validation-for="DataInicio" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataFim" class="form-label">Data de Fim</label>
+            <input asp-for="DataFim" type="date" class="form-control"
+                   value="@(Model.DataFim == DateTime.MinValue ? DateTime.Now.ToString("yyyy-MM-dd") : Model.DataFim.ToString("yyyy-MM-dd"))" />
+            <span asp-validation-for="DataFim" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">
+            <i class="fas fa-save"></i> Salvar Alterações
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="fas fa-times"></i> Cancelar
+        </a>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

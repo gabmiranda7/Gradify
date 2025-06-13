@@ -26,20 +26,25 @@ namespace Gradify.Controllers
                 .OrderBy(a => a.DataAula)
                 .ToListAsync();
 
-
             var dtoList = aulas.Select(a => new AulaDTO
             {
                 Id = a.Id,
                 Tema = a.Tema,
                 DataAula = a.DataAula,
                 TurmaId = a.TurmaId,
-                NomeProfessor = a.Professor?.Nome // 👈 aqui
+                NomeProfessor = a.Professor?.Nome
             }).ToList();
 
+         var turma = await _context.Turmas
+                .Include(t => t.Curso)
+                .FirstOrDefaultAsync(t => t.Id == turmaId);
 
             ViewBag.TurmaId = turmaId;
+            ViewBag.CursoId = turma?.CursoId;
+
             return View(dtoList);
         }
+
 
         // GET: Aula/Criar
         public async Task<IActionResult> Criar(int turmaId)

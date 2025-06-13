@@ -23,17 +23,17 @@ namespace Gradify.Controllers
         {
             var turmas = await _context.Turmas
                 .Where(t => t.CursoId == cursoId)
-                //.Include(t => t.Professor)
                 .ToListAsync();
 
             var turmasDTO = turmas.Select(t => new TurmaDTO
             {
                 Id = t.Id,
                 Nome = t.Nome,
-                //NomeProfessor = t.Professor?.Nome ?? ""
-            });
+                CursoId = t.CursoId
+            }).ToList();
 
             ViewBag.CursoId = cursoId;
+
             return View(turmasDTO);
         }
 
